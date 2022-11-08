@@ -72,13 +72,6 @@ const startMap = () => {
     let myMarker = L.marker([48.8418565, 2.2683737], myOptions);
     myMarker.addTo(map).bindPopup("Ici c'est l'iut de Paris :))");
 
-    function onMapClick(e) {
-        popup
-            .setLatLng(e.latlng)
-            .setContent("Hello click détecté sur la carte !<br/> " + e.latlng.toString())
-            .openOn(map);
-    }
-
     map.on('click', onMapClick);
 }
 
