@@ -6,20 +6,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./leaflet/leaflet.js"></script>
   <script src="./JS/Map.js"></script>
-  <style>
-    html,
-    body,
-    #map {
-      padding: 0;
-      margin: 0;
-      width: 50em;
-      height: 50em;
-    }
-  </style>
+  <link rel="stylesheet" href="./CSS/style.css">
 </head>
 
 <body>
+  <nav>
+    <div>
+      <ul>
+        <li>
+          <div class="animation">
+            <button style="float:right">Se Connecter</button>
+            <div id="msg">
+              <br>
+              <p>Il pleut</p>
+              <p> [lat,lon]</p>
+            </div>
+          </div>
+        </li>
+        <li class="nav_menu">Vos Donnees</a></li>
+        <li class="nav_menu">Vos Adresses</a></li>
+        <li class="nav_menu">Ajoutez vos adresses</a></li>
+        <li class="nav_menu">Personnalisez votre icon</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div id="map"></div>
+
   <fieldset>
     <legend>Magazin</legend>
 

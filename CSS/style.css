@@ -1,0 +1,45 @@
+html,
+body,
+#map {
+    padding: 0;
+    margin: 0;
+    width: 50em;
+    height: 50em;
+    /* z-index: -1; */
+}
+
+nav {
+    z-index: 10;
+    right: 0;
+    background-color: white;
+    position: fixed;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 1em 0;
+    background-color: #e5e5e5;
+}
+
+nav .nav_menu,
+#msg {
+    padding: 1em;
+}
+
+.animation {
+    /*background-image change selon meteo*/
+    background-image: url('https://cdn.kikinote.net/wp-content/uploads/2013/10/Google-Chrome%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD-%E4%B8%8B%E9%9B%A8%E8%81%B2%E9%9F%B3%E6%A8%82MP3.gif');
+    height: 25em;
+    width: 25em;
+    right: 0;
+}
+
+.animation #msg {
+    /*change selon meteo*/
+    color: white;
+}
