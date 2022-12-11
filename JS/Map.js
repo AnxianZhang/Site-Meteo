@@ -27,6 +27,9 @@ const getInformationFromAPI = () => {
 */
 
 const startMap = () => {
+    const getDefaultSites = () =>{
+        // ici que le scripte va recevoir les donnee revoyer par le le fichier php
+    };
     mapProps = {
         center: [48.8418565, 2.2683737],
         zoom: 14
@@ -52,6 +55,8 @@ const startMap = () => {
         alt: "sup"
     };
 
+
+
     /**
      * qlq exemples (tout les données seront stocker dans une bd !)
      */
@@ -66,42 +71,42 @@ const startMap = () => {
         .on("click", e => {
             map.flyTo(e.latlng, 15);
         });
-
-    L.marker([43.72315357305774, 10.396682828121708], {
-        title: "Tour de Pise",
-        icon: L.icon({
-            iconUrl: 'https://assets.stickpng.com/images/580b585b2edbce24c47b2d66.png',
-            iconSize: [48, 48],
-        })
-    }).addTo(map);
-    L.marker([27.175412029508465, 78.04226021413929], {
-        title: "Taj Mahal",
-        icon: L.icon({
-            iconUrl: 'https://freepngimg.com/download/taj_mahal/33092-9-taj-mahal-photos.png',
-            iconSize: [48, 48],
-        })
-    }).addTo(map);
-    L.marker([40.18965860495749, 116.38931617630404], {
-        title: "Cité interdite",
-        icon: L.icon({
-            iconUrl: 'https://png.pngtree.com/png-clipart/20220125/original/pngtree-the-imperial-palace-png-image_7213186.png',
-            iconSize: [48, 48],
-        })
-    }).addTo(map);
-    L.marker([35.36132465268525, 138.72740627109457], {
-        title: "Mont Fuji",
-        icon: L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/5896/5896886.png',
-            iconSize: [48, 48],
-        })
-    }).addTo(map);
-    L.marker([29.97935529588269, 31.13420189701451], {
-        title: "Pyramide de Khéops",
-        icon: L.icon({
-            iconUrl: 'https://cdn-icons-png.flaticon.com/512/218/218764.png',
-            iconSize: [48, 48],
-        })
-    }).addTo(map);
+    
+    // L.marker([43.72315357305774, 10.396682828121708], {
+    //     title: "Tour de Pise",
+    //     icon: L.icon({
+    //         iconUrl: 'https://assets.stickpng.com/images/580b585b2edbce24c47b2d66.png',
+    //         iconSize: [48, 48],
+    //     })
+    // }).addTo(map);
+    // L.marker([27.175412029508465, 78.04226021413929], {
+    //     title: "Taj Mahal",
+    //     icon: L.icon({
+    //         iconUrl: 'https://freepngimg.com/download/taj_mahal/33092-9-taj-mahal-photos.png',
+    //         iconSize: [48, 48],
+    //     })
+    // }).addTo(map);
+    // L.marker([40.18965860495749, 116.38931617630404], {
+    //     title: "Cité interdite",
+    //     icon: L.icon({
+    //         iconUrl: 'https://png.pngtree.com/png-clipart/20220125/original/pngtree-the-imperial-palace-png-image_7213186.png',
+    //         iconSize: [48, 48],
+    //     })
+    // }).addTo(map);
+    // L.marker([35.36132465268525, 138.72740627109457], {
+    //     title: "Mont Fuji",
+    //     icon: L.icon({
+    //         iconUrl: 'https://cdn-icons-png.flaticon.com/512/5896/5896886.png',
+    //         iconSize: [48, 48],
+    //     })
+    // }).addTo(map);
+    // L.marker([29.97935529588269, 31.13420189701451], {
+    //     title: "Pyramide de Khéops",
+    //     icon: L.icon({
+    //         iconUrl: 'https://cdn-icons-png.flaticon.com/512/218/218764.png',
+    //         iconSize: [48, 48],
+    //     })
+    // }).addTo(map);
 
     /**
      * les popup des icons:
