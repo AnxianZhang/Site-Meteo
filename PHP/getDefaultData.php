@@ -1,6 +1,7 @@
 <?php
     require("connexion.php");
-    $sql = "SELECT * FROM lieux;";
+    $sql = "SELECT *
+            FROM lieux;";
     try{
         $commande = $pdo->prepare($sql);
         if ($commande->execute()){
@@ -13,5 +14,5 @@
         echo utf8_encode("Echec de la requete SQL " . $e->getMessage() . "\n");
         die();
     }
-    // echo json_encode($result);
+    echo json_encode($result);
 ?>
