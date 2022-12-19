@@ -1,19 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaflet.js AJAX Node.js</title>
   <link rel="stylesheet" href="./leaflet/leaflet.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./leaflet/leaflet.js"></script>
-  <script src="./JS/Map.js"></script>
+
   <link rel="stylesheet" href="./CSS/style.css">
+
+  <script src="./JS/Map.js"></script>
+  <script src="./JS/MenuUi.js"></script>
 </head>
 
 <body>
-  <nav>
-    <div>
-      <ul>
-        <li>
+  <div id="tt">
+    <div id="nav">
+      <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-bar">
+        <li id="anim">
           <div class="animation">
             <button style="float:right">Se Connecter</button>
             <div id="msg">
@@ -23,39 +35,13 @@
             </div>
           </div>
         </li>
-        <li class="nav_menu">Vos Donnees</a></li>
-        <li class="nav_menu">Vos Adresses</a></li>
-        <li class="nav_menu">Ajoutez vos adresses</a></li>
-        <li class="nav_menu">Personnalisez votre icon</a></li>
+        <li class="nav_menu"><a>Vos Donnees</a></li>
+        <li class="nav_menu"><a>Vos Adresses personalisé</a></li>
+        <li class="nav_menu"><a>Ajoutez un lieux</a></li>
       </ul>
     </div>
-  </nav>
-
-  <div id="map"></div>
-
-  <fieldset>
-    <legend>Magazin</legend>
-
-    <div>
-      <input type="checkbox" id="scales" name="scales" checked>
-      <label for="scales">Monoprix</label>
-    </div>
-  </fieldset>
-
-  <fieldset>
-    <legend>Arondissement:</legend>
-
-    <div>
-      <input type="checkbox" id="1" name="1" class="arrondissement">
-      <label>1</label>
-    </div>
-
-    <div>
-      <input type="checkbox" id="2" name="2" class="arrondissement">
-      <label>2</label>
-    </div>
-  </fieldset>
-
+    <div id="map"></div>
+  </div>
 </body>
 
 </html>
