@@ -6,6 +6,7 @@ screen and (max-device-width:800px) {
     #nav {
         width: 50%;
         /* height: 100%; */
+        font-size: 0.7em;
     }
 
     .hamburger {
