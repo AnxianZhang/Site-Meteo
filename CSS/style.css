@@ -5,7 +5,6 @@
 screen and (max-device-width:800px) {
     #nav {
         width: 50%;
-        /* height: 100%; */
         font-size: 0.7em;
     }
 
@@ -24,7 +23,6 @@ screen and (max-device-width:800px) {
         position: fixed;
         background: #131418;
         height: 100vh;
-        /* height: fit-content; */
         width: 100%;
         flex-direction: column;
         clip-path: circle(50px at 90% -20%);
@@ -112,9 +110,7 @@ body {
     float: right;
     background-color: #131418;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
-    /* display: flex; */
     position: relative;
-    /* height: 100%; */
 }
 
 #nav ul {
@@ -127,7 +123,7 @@ body {
 }
 
 #nav ul li {
-    margin: 1em 0;
+    margin: 0 0 1em 0;
     color: white;
     position: relative;
 }
@@ -144,12 +140,6 @@ body {
     right: 0;
 }
 
-.animation #msg {
-    /*change selon meteo*/
-    color: white;
-}
-
-
 .toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -162,3 +152,39 @@ body {
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+
+
+
+
+.fenet{
+    display: none;
+    position: absolute;
+    border: 1px solid #bbbbbb;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+    top: 20%;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    text-align: center;
+    padding-bottom: 4em;
+}
+
+.form_submit {
+    padding:1em 0 0 0;
+    
+}
+.form_submit input,.form_submit button{
+    border-radius: 20px;
+    border: 1px solid #bbbbbb;
+    width: 90%;
+}
+
+#font_login {
+    font-weight: 400;
+    font-size: 24px;
+    text-align:left;
+}
+
+
