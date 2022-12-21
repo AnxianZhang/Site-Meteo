@@ -42,13 +42,14 @@
         <li class="nav_menu"><a>Ajoutez un lieux</a></li>
       </ul>
     </div>
+    <p id="phpmsg">php debugo</p>
     <div id="map"></div>
     <div id="connect" class="fenet">
       <button style="float: right;" onclick="document.getElementById('connect').style.display='none'">✕</button>
       <form action="" method="post" class="form_submit"><br><br>
         <input type="text" placeholder="Adresse e-mail" /><br><br>
         <input type="password" placeholder="Mot de passe" /><br><br>
-        <button>Se connecter</button>
+        <input type="submit" value="Se conneceter">
         <p><a>Mot de passe oublié ?</a></p>
       </form>
       <button
@@ -67,7 +68,8 @@
         <input name="mdp" value="" type="password" placeholder="Mot de passe" /><br><br>
         <input name="confMdp" value="" type="password" placeholder="Confirmer mot de passe" /><br><br>
         <p>En cliquant sur S'inscrire, vous acceptez nos <a>Conditions générales</a></p>
-        <div style="width: 100px; height: 50px; cursor: pointer; background-color: green;" id="sign-up">S'inscrire</div>
+        <input type="submit" value="S'inscrire">
+        <!-- <div style="width: 100px; height: 50px; cursor: pointer; background-color: green;" id="sign-up">S'inscrire</div> -->
       </form>
     </div>
   </div>

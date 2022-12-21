@@ -1,16 +1,16 @@
 const getDefaultSites = () =>{
-    var url = "./PHP/getDefaultData.php";
+    let url = "./PHP/getDefaultData.php";
     $.ajax({
         async: true,
         contentType: "application/x-www-form-urlencoded",
         type: "POST",
         url: url,
         dataType: "json",
-        success: function (data) {
+        success: data =>{
             startMap(data);
         },
-        error: function () {
-            alert("Problem occured in ajax");
+        error: () =>{
+            alert("Problem occured in ajax of Map.js");
         }
     });
 };
@@ -48,7 +48,7 @@ const startMap = data => {
 }
 
 const initMap = () => {
-    //getDefaultSites();
+    getDefaultSites();
 }
 
 $(window).ready(initMap);

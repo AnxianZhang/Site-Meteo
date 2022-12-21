@@ -11,7 +11,7 @@
         }
     }
     catch(PDOException $e){
-        echo utf8_encode("Echec de la requete SQL " . $e->getMessage() . "\n");
+        echo utf8_encode("Echec de la requete SQL dans getDefaultData" . $e->getMessage() . "\n");
         die();
     }
     echo json_encode($result);

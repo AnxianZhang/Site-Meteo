@@ -12,24 +12,8 @@ const hasFieldNull = inputs => {
     return false;
 }
 
-const verifData = () => {
-    const logUpInputs = document.querySelectorAll("#inscrip input");
-    console.log(hasFieldNull(logUpInputs));
-    if (!hasFieldNull(logUpInputs)) {
-
-    }
-    else {
-        alert("Vous devez remplire tout les champs !");
-    }
-}
-
 const checkContent = (checker, toCheck) =>{
-    if(checker.value == toCheck.value && checker.value != "" && toCheck.value != ""){
-        console.log("same");
-    }
-    else{
-        console.log("nop"); // ajouter les css
-    }
+    return checker.value == toCheck.value && checker.value != "" && toCheck.value != "";
 }
 
 const checkContentMail = () =>{
@@ -40,14 +24,58 @@ const checkContentMdp = () =>{
     return checkContent(userData["mdp"], userData["confMdp"]);
 }
 
+const creatAcount = () =>{
+    let url = "./PHP/creationCompte.php";
+    let data = {
+        fname: document.querySelector("#inscrip input[name = nom]").value,
+        lname: document.querySelector("#inscrip input[name = prenom]").value,
+        mail: userData['mail'].value,
+        mdp: userData['mdp'].value
+    };
+
+    $.ajax({
+        async: true,
+        contentType: "application/x-www-form-urlencoded",
+        type: "POST",
+        url: url,
+        dataType: "text",
+        data: data,
+        success: data =>{
+            document.querySelector("#phpmsg").innerHTML = data;
+        },
+        error: () =>{
+            alert("Problem occured in ajax of Insciption.js");
+        }
+    });
+} 
+
+const verifData = () => {
+    const logUpInputs = document.querySelectorAll("#inscrip input");
+    console.log(hasFieldNull(logUpInputs));
+    if (!hasFieldNull(logUpInputs) && checkContentMail() && checkContentMdp()) {
+        alert("gg !");
+        creatAcount();
+    }
+    else {
+        alert("Vous devez remplire tout les champs !");
+    }
+}
+
 const addEvent = () => {
+    const handleForm = e =>{
+        e.preventDefault();
+    }
+    
+    document.querySelector("#inscrip form").addEventListener("submit", handleForm);
+    document.querySelector("#connect form").addEventListener("submit", handleForm);
+
     userData["confMail"].addEventListener("change", checkContentMail);
     userData["mail"].addEventListener("change", checkContentMail);
 
     userData["mdp"].addEventListener("change", checkContentMdp);
     userData["confMdp"].addEventListener("change", checkContentMdp);
 
-    document.querySelector("#inscrip #sign-up").addEventListener("click", verifData);
+    document.querySelector("#inscrip input[type = submit]").addEventListener("click", verifData);
 }
 
 const initInscription = () => {
