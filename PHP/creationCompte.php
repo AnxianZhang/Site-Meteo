@@ -26,9 +26,30 @@
             die();
         }
     }
+
+    function addNewUser(){
+        global $lname, $fname, $mail, $mdp;
+
+        require("connexionPDO.php");
+        $sql = "INSERT INTO USER_DATA VALUES(:numU, :prenomU, :nomU, :mail, :mdp)";
+        try{
+            $commande = $pdo->prepare($sql);
+            $commande->bindParam(':numU', NULL);
+            $commande->bindParam(':prenomU', $lname);
+            $commande->bindParam(':nomU', $fname);
+            $commande->bindColumn(':mail', $mail);
+            $commande->bindParam(':mdp', hash("sha512", $mdp));
+            $commande->execute();
+        }
+        catch(PDOException $e){
+			echo utf8_encode("Echec de l'insert dans creationCompte : " . $e->getMessage() . "\n");
+			die();
+        }
+    }
     
     if(!isExistingAcount($mail)){
-        // save new user
+        echo "does not exist";
+        // addNewUser(); // need to test it 
     }
     else{
         echo "existing acount";
