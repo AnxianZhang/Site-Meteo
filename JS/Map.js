@@ -48,7 +48,7 @@ const startMap = data => {
 }
 
 const initMap = () => {
-    getDefaultSites();
+    //getDefaultSites();
 }
 
 $(window).ready(initMap);
