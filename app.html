@@ -14,6 +14,7 @@
 
   <script src="./JS/Map.js"></script>
   <script src="./JS/MenuUi.js"></script>
+  <script scr="./JS/Inscription.js"></script>
 </head>
 
 <body>
@@ -45,8 +46,8 @@
     <div id="connect" class="fenet">
       <button style="float: right;" onclick="document.getElementById('connect').style.display='none'">✕</button>
       <form action="" method="post" class="form_submit"><br><br>
-        <input type="text" value="" placeholder="Adresse e-mail" /><br><br>
-        <input type="password" value="" placeholder="Mot de passe" /><br><br>
+        <input type="text" placeholder="Adresse e-mail" /><br><br>
+        <input type="password" placeholder="Mot de passe" /><br><br>
         <button>Se connecter</button>
         <p><a>Mot de passe oublié ?</a></p>
       </form>
@@ -58,19 +59,17 @@
     <div id="inscrip" class="fenet">
       <button style="float: right;" onclick="document.getElementById('inscrip').style.display='none'">✕</button>
       <div id="font_login">S'inscrire</div>
-      <form action="" method="post" class="form_submit"><br><br>
-        <input class="linedeux" type="text" value="" placeholder="Prénom" style="width: 43%;"/>
-        <input class="linedeux" type="text" value="" placeholder="Nom de famille" style="width: 43%;"/><br><br>
-        <input type="text" value="" placeholder="Adresse e-mail" /><br><br>
-        <input type="text" value="" placeholder="Confirmer adresse e-mail" /><br><br>
-        <input type="password" value="" placeholder="Mot de passe" /><br><br>
-        <input type="password" value="" placeholder="Confirmer mot de passe" /><br><br>
+      <form class="form_submit"><br><br>
+        <input name="prenom" class="linedeux" type="text" placeholder="Prénom" style="width: 43%;"/>
+        <input name="nom" class="linedeux" type="text" placeholder="Nom de famille" style="width: 43%;"/><br><br>
+        <input name="mail" type="text" placeholder="Adresse e-mail" /><br><br>
+        <input name="confMail" type="text" placeholder="Confirmer adresse e-mail" /><br><br>
+        <input name="mdp" type="password" placeholder="Mot de passe" /><br><br>
+        <input name="confMdp" type="password" placeholder="Confirmer mot de passe" /><br><br>
         <p>En cliquant sur S'inscrire, vous acceptez nos <a>Conditions générales</a></p>
-        <button type="button">S'inscrire</button>
+        <button>S'inscrire</button>
       </form>
     </div>
-
-
   </div>
 </body>
 

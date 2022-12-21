@@ -1,5 +1,5 @@
 <?php
-    require("connexion.php");
+    require("connexionPDO.php");
     $sql = "SELECT *
             FROM lieux;";
     try{

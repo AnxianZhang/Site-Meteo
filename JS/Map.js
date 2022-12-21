@@ -10,7 +10,7 @@ const getDefaultSites = () =>{
             startMap(data);
         },
         error: function () {
-            alert("Porblem occured in ajax");
+            alert("Problem occured in ajax");
         }
     });
 };
@@ -47,8 +47,8 @@ const startMap = data => {
     });
 }
 
-const init = () => {
-    //getDefaultSites();
+const initMap = () => {
+    getDefaultSites();
 }
 
-$(window).ready(init);
+$(window).ready(initMap);
