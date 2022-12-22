@@ -42,6 +42,10 @@ const creatAcount = () =>{
         data: data,
         success: data =>{
             document.querySelector("#phpmsg").innerHTML = data;
+            /*
+            si le compte a ete crer alors, on ferme le formulair de creation et on demande a lutilisateur de se connecter
+            si le comte existe deja on efface les champ mail et mdp et on demande de soit d'utiliser un autre email soit de se connecter
+            */
         },
         error: () =>{
             alert("Problem occured in ajax of Insciption.js");
@@ -54,10 +58,10 @@ const verifData = () => {
     console.log(hasFieldNull(logUpInputs));
     if (!hasFieldNull(logUpInputs) && checkContentMail() && checkContentMdp()) {
         alert("gg!");
-        //creatAcount();
+        creatAcount();
     }
     else {
-        alert("Vous devez remplire tout les champs !");
+        alert("Vous devez remplire tout les champs !"); // faire le visuel CSS sur le formulaire !!!
     }
 }
 
