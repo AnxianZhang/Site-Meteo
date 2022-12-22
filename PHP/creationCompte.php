@@ -5,7 +5,7 @@
     $mdp = isset($_POST["mdp"]) ? $_POST["mdp"] : "niete in mdp";
 
     // echo $mail;
-
+    
     function isExistingAcount($mail){
         require("connexionPDO.php");
         $sql = "SELECT *
@@ -31,25 +31,38 @@
         global $lname, $fname, $mail, $mdp;
 
         require("connexionPDO.php");
-        $sql = "INSERT INTO USER_DATA VALUES(:numU, :prenomU, :nomU, :mail, :mdp)";
+        $sql = "INSERT INTO USER_DATA
+                VALUES(:numS, :prenomU, :nomU, :mail, :mdp);";
         try{
+            $hash = password_hash($mdp, PASSWORD_BCRYPT);
+            $null = null;
             $commande = $pdo->prepare($sql);
-            $commande->bindParam(':numU', NULL);
+
+            $commande->bindParam(':numS', $null);
             $commande->bindParam(':prenomU', $lname);
             $commande->bindParam(':nomU', $fname);
-            $commande->bindColumn(':mail', $mail);
-            $commande->bindParam(':mdp', hash("sha512", $mdp));
-            $commande->execute();
+            $commande->bindParam(':mail', $mail);
+            $commande->bindParam(':mdp', $hash);
+
+            if($commande->execute()){
+                echo "commande executé";
+            }
         }
         catch(PDOException $e){
 			echo utf8_encode("Echec de l'insert dans creationCompte : " . $e->getMessage() . "\n");
 			die();
         }
     }
+
+    // $hash = password_hash($mdp, PASSWORD_BCRYPT);
+    // if(password_verify("mdp", $hash))
+    //     echo "oui oiu";
+    // else 
+    //     echo "non non";
     
     if(!isExistingAcount($mail)){
         echo "does not exist";
-        // addNewUser(); // need to test it 
+        addNewUser(); // need to test it 
     }
     else{
         echo "existing acount";

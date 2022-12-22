@@ -17,8 +17,9 @@ const getDefaultSites = () =>{
 
 const startMap = data => {
     mapProps = {
-        center: [48.8418565, 2.2683737],
-        zoom: 5
+        center: [24.92629, 23.02734],
+        zoom: 3,
+        minZoom: 3
     };
 
     let map = L.map('map', mapProps);

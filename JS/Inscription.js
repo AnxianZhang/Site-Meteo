@@ -53,8 +53,8 @@ const verifData = () => {
     const logUpInputs = document.querySelectorAll("#inscrip input");
     console.log(hasFieldNull(logUpInputs));
     if (!hasFieldNull(logUpInputs) && checkContentMail() && checkContentMdp()) {
-        alert("gg !");
-        creatAcount();
+        alert("gg!");
+        //creatAcount();
     }
     else {
         alert("Vous devez remplire tout les champs !");
