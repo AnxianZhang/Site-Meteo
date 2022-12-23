@@ -152,39 +152,3 @@ body {
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
-
-
-
-
-.fenet{
-    display: none;
-    position: absolute;
-    border: 1px solid #bbbbbb;
-    background-color: white;
-    z-index: 1002;
-    overflow: auto;
-    top: 20%;
-    left: 50%;
-    width: 300px;
-    margin-left: -150px;
-    text-align: center;
-    padding-bottom: 4em;
-}
-
-.form_submit {
-    padding:1em 0 0 0;
-    
-}
-.form_submit input,.form_submit button{
-    border-radius: 20px;
-    border: 1px solid #bbbbbb;
-    width: 90%;
-}
-
-#font_login {
-    font-weight: 400;
-    font-size: 24px;
-    text-align:left;
-}
-
-

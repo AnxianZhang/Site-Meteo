@@ -15,6 +15,7 @@
   <script src="./leaflet/leaflet.js"></script> -->
 
   <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/form.css">
 
   <script src="./JS/Map.js"></script>
   <script src="./JS/MenuUi.js"></script>
@@ -32,8 +33,7 @@
       <ul class="nav-bar">
         <li id="anim">
           <div class="animation">
-            <button onclick="document.getElementById('connect').style.display='block';">
-              Se Connecter</button>
+            <button>Se Connecter</button>
             <div id="msg">
               <br>
               <p>Il pleut</p>
@@ -49,11 +49,12 @@
     <p id="phpmsg">php debugo</p>
     <div id="map"></div>
     <div id="connect" class="fenet">
-      <button style="float: right;" onclick="document.getElementById('connect').style.display='none'">✕</button>
-      <form action="" method="post" class="form_submit"><br><br>
+      <button style="float: right;" class="closeBtn">✕</button><br>
+      <div>Connexion</div>
+      <form class="form_submit"><br><br>
         <input type="text" placeholder="Adresse e-mail" /><br><br>
         <input type="password" placeholder="Mot de passe" /><br><br>
-        <input type="submit" value="Se conneceter">
+        <button type="submit">Se conneceter</button>
         <p><a>Mot de passe oublié ?</a></p>
       </form>
       <button
@@ -62,17 +63,17 @@
     </div>
 
     <div id="inscrip" class="fenet">
-      <button style="float: right;" onclick="document.getElementById('inscrip').style.display='none'">✕</button>
+      <button style="float: right;" class="closeBtn">✕</button>
       <div id="font_login">S'inscrire</div>
       <form class="form_submit"><br><br>
-        <input required name="prenom" value="" class="linedeux" type="text" placeholder="Prénom" style="width: 43%;"/>
-        <input required name="nom" value="" class="linedeux" type="text" placeholder="Nom de famille" style="width: 43%;"/><br><br>
-        <input required name="mail" value="" type="text" placeholder="Adresse e-mail" /><br><br>
-        <input required name="confMail" value="" type="text" placeholder="Confirmer adresse e-mail" /><br><br>
+        <input required pattern="[A-Za-z]*" name="prenom" value="" class="linedeux" type="text" placeholder="Prénom" style="width: 43%;"/>
+        <input required pattern="[A-Za-z]*" name="nom" value="" class="linedeux" type="text" placeholder="Nom de famille" style="width: 43%;"/><br><br>
+        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="mail" value="" type="text" placeholder="Adresse e-mail" /><br><br>
+        <input required  name="confMail" value="" type="text" placeholder="Confirmer adresse e-mail" /><br><br>
         <input required name="mdp" value="" type="password" placeholder="Mot de passe" /><br><br>
         <input required name="confMdp" value="" type="password" placeholder="Confirmer mot de passe" /><br><br>
         <p>En cliquant sur S'inscrire, vous acceptez nos <a>Conditions générales</a></p>
-        <input type="submit" value="S'inscrire">
+        <button type="submit" >S'inscrire</button>
         <!-- <div style="width: 100px; height: 50px; cursor: pointer; background-color: green;" id="sign-up">S'inscrire</div> -->
       </form>
     </div>
