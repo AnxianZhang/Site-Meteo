@@ -15,4 +15,23 @@ const addAnimationToMenu = () => {
     });
 }
 
-window.addEventListener("DOMContentLoaded", addAnimationToMenu);
+const addClickMenu = () =>{
+    const menu = Array.from(document.querySelectorAll(".nav_menu"));
+    menu.forEach(element =>{
+        element.addEventListener("click", () =>{
+            element.classList.add("open");
+            menu.forEach(item =>{
+                if (item != element){
+                    item.classList.remove("open");
+                }
+            });
+        });
+    });
+}
+
+const starMenuUi = () =>{
+    addAnimationToMenu();
+    addClickMenu();
+}
+
+window.addEventListener("DOMContentLoaded", starMenuUi);

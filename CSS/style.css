@@ -21,7 +21,7 @@ screen and (max-device-width:800px) {
 
     .nav-bar {
         position: fixed;
-        background: #131418;
+        background: #333;
         height: 100vh;
         width: 100%;
         flex-direction: column;
@@ -108,9 +108,10 @@ body {
 #nav {
     z-index: 3;
     float: right;
-    background-color: #131418;
+    background-color: #333;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
     position: relative;
+    /* width: 20%; */
 }
 
 #nav ul {
@@ -131,6 +132,20 @@ body {
 #nav .nav_menu,
 #msg {
     padding: 1em;
+}
+
+#nav .nav_menu{
+    /* border: coral 2px solid; */
+    height: 2%;
+    transition: all .2s 0s ease-in-out;
+    cursor: pointer;
+}
+
+#nav .nav_menu.open{
+    color: #333;
+    background: rgb(170,211,223);
+    height: 30%;
+    cursor:auto;
 }
 
 .animation {

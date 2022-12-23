@@ -35,9 +35,11 @@
     25% {
         transform: translate(4px);
     }
+
     50% {
         transform: translate(-4);
     }
+
     75% {
         transform: translate(4px);
     }
