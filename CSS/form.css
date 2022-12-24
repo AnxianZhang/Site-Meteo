@@ -49,3 +49,15 @@ input:invalid{
     animation: shake 0.3s ease-in-out 0s 2;
     color: red;
 }
+
+#add-new-sites textarea{
+    resize: none;
+}
+
+#add-new-site{
+    visibility: hidden;
+    /* transition: all 0.4s 0s ease-in-out; */
+}
+.nav_menu.open #add-new-site{
+    visibility: visible;
+}
