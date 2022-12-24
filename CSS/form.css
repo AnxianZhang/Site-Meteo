@@ -50,14 +50,29 @@ input:invalid{
     color: red;
 }
 
-#add-new-sites textarea{
+/* #add-new-site{
+    border: red 2px solid;
+    width: 80%;
+    height: 100%;
+} */
+
+#add-new-site textarea{
     resize: none;
 }
 
-#add-new-site{
+#add-new-site *{
+    width: 17.675em;
+}
+
+.nav_menu > div{
     visibility: hidden;
     /* transition: all 0.4s 0s ease-in-out; */
 }
-.nav_menu.open #add-new-site{
+
+.nav_menu.open > div{
     visibility: visible;
+}
+
+#add-new-site input[placeholder = "lon"], #add-new-site input[placeholder = "lat"]{
+    width: 8.4em;
 }

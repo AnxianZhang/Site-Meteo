@@ -4,7 +4,7 @@
 @media screen and (max-width: 800px),
 screen and (max-device-width:800px) {
     #nav {
-        width: 50%;
+        width: 40%;
         font-size: 0.7em;
     }
 
@@ -75,6 +75,20 @@ screen and (max-device-width:800px) {
 
     li.fade {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 630px){
+    #nav {
+        width: 55%;
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width: 460px){
+    #nav {
+        width: 70%;
+        font-size: 0.7em;
     }
 }
 
