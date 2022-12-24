@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaflet.js AJAX Node.js</title>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
@@ -21,6 +22,7 @@
   <script src="./JS/MenuUi.js"></script>
   <script src="./JS/Inscription.js"></script>
   <script src="./JS/addNewSite.js"></script>
+  <script src="./JS/connect.js"></script>
 </head>
 
 <body>
@@ -66,9 +68,9 @@
       <button style="float: right;" class="closeBtn">✕</button><br>
       <div>Connexion</div>
       <form class="form_submit"><br><br>
-        <input type="text" placeholder="Adresse e-mail" /><br><br>
-        <input type="password" placeholder="Mot de passe" /><br><br>
-        <button type="submit">Se conneceter</button>
+        <input id="userNamee" type="text" placeholder="Adresse e-mail" /><br><br>
+        <input id="passwordd" type="password" placeholder="Mot de passe" /><br><br>
+        <button id="logInn" type="submit">Se conneceter</button>
         <p><a>Mot de passe oublié ?</a></p>
       </form>
       <button
