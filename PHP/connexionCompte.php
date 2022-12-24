@@ -10,12 +10,10 @@
         try{
             $commande = $pdo->prepare($sql);
             $commande->bindParam(':username', $username);
-            // complet
+
             if ($commande->execute()){
                 $result = $commande->fetchAll(PDO::FETCH_ASSOC);
-                if (count($result) == 0) return "";
-                
-                return $result[0]["mdp"];
+                return (count($result) == 0) ? "" : $result[0]["mdp"];
             }
         } catch(PDOException $e){
             echo utf8_encode("Echec de la requete SQL dans creationCompte" . $e->getMessage() . "\n");
@@ -23,8 +21,8 @@
         }
     }
 
-    $bdMdp=isExistingAcount($username);
-    if($bdMdp!=""){ // compte  existe
+    $bdMdp = isExistingAcount($username);
+    if($bdMdp != ""){ // compte  existe (si le mot de passe du compet et pas vide)
         if(password_verify($password, $bdMdp)){
             echo "connexion reussi";
         }

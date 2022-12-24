@@ -3,8 +3,6 @@
     $lname = isset($_POST["lname"]) ? $_POST["lname"] : "nada in lname";
     $mail = isset($_POST["mail"]) ? $_POST["mail"] : "rien in mail";
     $mdp = isset($_POST["mdp"]) ? $_POST["mdp"] : "niete in mdp";
-
-    // echo $mail;
     
     function isExistingAcount($mail){
         require("connexionPDO.php");
@@ -53,16 +51,10 @@
 			die();
         }
     }
-
-    // $hash = password_hash($mdp, PASSWORD_BCRYPT);
-    // if(password_verify("mdp", $hash))
-    //     echo "oui oiu";
-    // else 
-    //     echo "non non";
     
     if(!isExistingAcount($mail)){
         echo "does not exist";
-        addNewUser(); // need to test it 
+        addNewUser();
     }
     else{
         echo "existing acount";
