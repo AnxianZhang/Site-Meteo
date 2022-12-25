@@ -1,3 +1,14 @@
+let mapProps;
+let map;
+let base;
+
+window.deleteSitesUserSites = () =>{
+    // delete all sites
+
+    alert("ola");
+    //getDefaultSites();
+}
+
 const getDefaultSites = () =>{
     let url = "./PHP/getDefaultData.php";
     $.ajax({
@@ -22,11 +33,11 @@ const startMap = data => {
         minZoom: 3
     };
 
-    let map = L.map('map', mapProps);
-    let base = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+    map = L.map('map', mapProps);
+    base = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
     Array.from(data).forEach(siteInfo => {
-        L.marker([siteInfo['latitude'], siteInfo['lontitude']], {
+        L.marker([siteInfo['latitude'], siteInfo['lontitude']], { // add this to an array
             title: siteInfo['nomS'],
             icon: L.icon({
                 iconUrl: siteInfo['icon'],

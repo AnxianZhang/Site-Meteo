@@ -70,7 +70,7 @@ const creatAcount = () => {
             }
         },
         error: () => {
-            alert("Problem occured in ajax of Insciption.js");
+            alert("Problem occured in ajax of LogUp.js");
         }
     });
 }
