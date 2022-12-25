@@ -68,8 +68,8 @@
       <button style="float: right;" class="closeBtn">✕</button><br>
       <div>Connexion</div>
       <form class="form_submit"><br><br>
-        <input id="userNamee" type="text" placeholder="Adresse e-mail" /><br><br>
-        <input id="passwordd" type="password" placeholder="Mot de passe" /><br><br>
+        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="userNamee" type="text" placeholder="Adresse e-mail" /><br><br>
+        <input required id="passwordd" type="password" placeholder="Mot de passe" /><br><br>
         <button id="logInn" type="submit">Se conneceter</button>
         <p><a>Mot de passe oublié ?</a></p>
       </form>

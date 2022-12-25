@@ -1,4 +1,6 @@
 $(document).ready(() => {
+    sessionStorage.setItem('isConnected', "false");
+
     $("#logInn").on("click", () => {
         let url = "./PHP/connexionCompte.php";
         let data = {
@@ -15,6 +17,9 @@ $(document).ready(() => {
             data: data,
             success: data => {
                 document.querySelector("#phpmsg").innerHTML = data; // add css
+                if (data == "connexion reussi"){
+                    sessionStorage.setItem('isConnected', "true");
+                }
             },
             error: () => {
                 alert("Problem occured in ajax of connect.js"); // add css

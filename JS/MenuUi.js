@@ -18,13 +18,22 @@ const addAnimationToMenu = () => {
 const addClickMenu = () =>{
     const menu = Array.from(document.querySelectorAll(".nav_menu"));
     menu.forEach(element =>{
+        let isConneted;
+
+        element.addEventListener("mouseover", () =>{
+            isConneted = sessionStorage.getItem("isConnected") == "false" ? false : true;
+            element.style.cursor = isConneted ? "pointer" : "not-allowed";
+        });
+
         element.addEventListener("click", () =>{
-            element.classList.add("open");
-            menu.forEach(item =>{
-                if (item != element){
-                    item.classList.remove("open");
-                }
-            });
+            if (isConneted){
+                element.classList.add("open");
+                menu.forEach(item =>{
+                    if (item != element){
+                        item.classList.remove("open");
+                    }
+                });
+            }
         });
     });
 }
