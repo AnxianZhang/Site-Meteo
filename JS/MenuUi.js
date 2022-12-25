@@ -15,17 +15,17 @@ const addAnimationToMenu = () => {
     });
 }
 
-const addClickMenu = () =>{
+const addClickMenu = () => {
     const menu = Array.from(document.querySelectorAll(".nav_menu"));
-    menu.forEach(element =>{
+    menu.forEach(element => {
         let isConneted;
 
-        element.addEventListener("mouseover", () =>{
+        element.addEventListener("mouseover", () => {
             isConneted = sessionStorage.getItem("isConnected") == "false" ? false : true;
             element.style.cursor = isConneted ? "pointer" : "not-allowed";
         });
 
-        element.addEventListener("click", () =>{
+        element.addEventListener("click", () => {
             if (isConneted) {
                 //element.classList.add("open");
                 menu.forEach(item => {
@@ -42,9 +42,27 @@ const addClickMenu = () =>{
     });
 }
 
-const starMenuUi = () =>{
+
+const mapVisible = () => {
+    const map = document.getElementById("map");
+    const cacher = document.getElementById("cacher");
+    const animation = document.getElementById("anim");
+    let isConneted;
+    map.addEventListener("mouseover", () => {
+        isConneted = sessionStorage.getItem("isConnected") == "false" ? false : true;
+        map.style.filter = isConneted ? "none" : "blur(10px)";
+        map.style.cursor = isConneted ? "pointer" : "not-allowed";
+        // map.style['pointer-events'] = isConneted ? "auto" : "none"; 
+        //interdit use souri avec bug
+        cacher.style.display = isConneted ? "none" : "block";
+        anim.style.display = isConneted ? "block" : "none";
+    });
+}
+
+const starMenuUi = () => {
     addAnimationToMenu();
     addClickMenu();
+    mapVisible();
 }
 
 window.addEventListener("DOMContentLoaded", starMenuUi);
