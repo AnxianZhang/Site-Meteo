@@ -111,7 +111,14 @@ body {
 #tt {
     height: 100vh;
 }
-
+#cacher{
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    background: transparent;
+    text-align: center;
+}
 #map {
     height: 100%;
     position: relative;
