@@ -26,11 +26,15 @@ const addClickMenu = () =>{
         });
 
         element.addEventListener("click", () =>{
-            if (isConneted){
-                element.classList.add("open");
-                menu.forEach(item =>{
-                    if (item != element){
-                        item.classList.remove("open");
+            if (isConneted) {
+                //element.classList.add("open");
+                menu.forEach(item => {
+                    // if (item != element){
+                    if (element.classList.contains("open")) {
+                        element.classList.remove("open");
+                    }
+                    else {
+                        element.classList.add("open");
                     }
                 });
             }
