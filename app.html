@@ -29,6 +29,9 @@
 
 <body>
   <div id="tt">
+    <div id="lphp">
+      <p id="phpmsg">php debugo</p>
+    </div>
     <div id="nav">
       <div class="hamburger">
         <div class="line1"></div>
@@ -36,7 +39,7 @@
         <div class="line3"></div>
       </div>
       <ul class="nav-bar">
-        <li id="anim">
+        <li id="anim" style="display: none;">
           <div class="animation">
             <button id="btnc">Connexion</button>
             <button id="log-out">Déconnexion</button>
@@ -65,8 +68,8 @@
         </li>
       </ul>
     </div>
-    <p id="phpmsg">php debugo</p>
-    <div id="cacher"><button onclick="document.getElementById('connect').style.display='block'">Se conneceter</button> </div>
+    <div id="cacher"><button onclick="document.getElementById('connect').style.display='block'">Se conneceter</button>
+    </div>
     <div id="map"></div>
     <div id="connect" class="fenet">
       <button style="float: right;" class="closeBtn">✕</button><br>

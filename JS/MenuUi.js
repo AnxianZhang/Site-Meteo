@@ -52,11 +52,15 @@ const mapVisible = () => {
         isConneted = sessionStorage.getItem("isConnected") == "false" ? false : true;
         map.style.filter = isConneted ? "none" : "blur(10px)";
         map.style.cursor = isConneted ? "pointer" : "not-allowed";
-        // map.style['pointer-events'] = isConneted ? "auto" : "none"; 
+        // map.style['pointer-events'] = isConneted ? "" : "none"; 
         //interdit use souri avec bug
         cacher.style.display = isConneted ? "none" : "block";
         anim.style.display = isConneted ? "block" : "none";
     });
+    // map.addEventListener("click", () => {
+    //     map.style.cursor = isConneted ? "pointer" : "not-allowed";
+    //     map.style['pointer-events'] = isConneted ? "" : "none"
+    // });
 }
 
 const starMenuUi = () => {
