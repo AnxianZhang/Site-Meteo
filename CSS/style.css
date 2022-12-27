@@ -120,8 +120,9 @@ body {
 #map {
     height: 100%;
     position: relative;
-    z-index: 2;
-    /* border: 2px red solid; */
+    /* z-index: -10;
+    filter: blur(10px);
+    cursor: not-allowed; */
 }
 
 #nav {

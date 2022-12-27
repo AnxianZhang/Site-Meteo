@@ -20,9 +20,10 @@ $(document).ready(() => {
             },
             success: data => {
                 if (data == "Connexion reussi"){
-                    triggerAcceptPopup(data);
                     sessionStorage.setItem('isConnected', "true");
                     $("#connect").css("display", "none");
+                    triggerAcceptPopup(data); // fonction du fichier Popup.js
+                    mapVisibility(); // fonction du fichier Map.js
 
                     $.ajax({
                         async: true,
@@ -45,7 +46,7 @@ $(document).ready(() => {
                     });
                 }
                 else{
-                    triggerWarwingPopup(data);
+                    triggerWarwingPopup(data); // fonction du fichier Popup.js
                 }
             }
         });

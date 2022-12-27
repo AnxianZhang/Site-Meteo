@@ -45,7 +45,7 @@
     }
 }
 
-input:invalid{
+input:invalid {
     animation: shake 0.3s ease-in-out 0s 2;
     color: rgb(211, 0, 0);
 }
@@ -56,23 +56,85 @@ input:invalid{
     height: 100%;
 } */
 
-#add-new-site textarea{
+#add-new-site textarea {
     resize: none;
 }
 
-#add-new-site *{
+#add-new-site * {
     width: 17.675em;
 }
 
-.nav_menu > div{
+.nav_menu>div {
     visibility: hidden;
     /* transition: all 0.4s 0s ease-in-out; */
 }
 
-.nav_menu.open > div{
+.nav_menu.open>div {
     visibility: visible;
 }
 
-#add-new-site input[placeholder = "lon"], #add-new-site input[placeholder = "lat"]{
+#add-new-site input[placeholder="lon"],
+#add-new-site input[placeholder="lat"] {
     width: 8.4em;
+}
+
+#log {
+    width: 100%;
+    position: absolute;
+    bottom: 1em;
+    display: flex;
+    /* border: solid red 2px; */
+    justify-content: space-evenly;
+}
+
+#log button {
+    width: 8em;
+    height: 3em;
+    box-shadow: inset 0 0 0 4px #333;
+    color: #333;
+    transition: color 0.25s;
+    position: relative;
+}
+
+#log button::before,
+#log button::after{
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#log button::before{
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+
+#log button::after{
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+
+#log button:hover{
+    color: #9c88ff;
+}
+
+#log button:hover::before,
+#log button:hover::after{
+    border-color: #9c88ff;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+
+#log button:hover::before{
+    transition-delay: 0s, 0s, 0.25s;
+}
+
+#log button:hover::after{
+    transition-delay: 0s, 0.25s, 0s;
 }

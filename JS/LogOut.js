@@ -18,12 +18,14 @@ const resetUserData = () =>{
 }
 
 const initLogOut = () =>{
-    $(".nav-bar .animation button#log-out").on("click", () =>{
+    $("#nav #log-out").on("click", () =>{
         sessionStorage.setItem('isConnected', "false");
         resetNewSiteForm();
         resetUserData();
         closeOpenMenu();
-        triggerDisconnectPopup("Déconnexion réussie");
+        triggerDisconnectPopup("Déconnexion réussie"); // fonction du fichier Popup.js
+        mapVisibility(); // fonction du fichier MenuUI.js
+        // add a reset map
     });
 }
 

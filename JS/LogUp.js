@@ -61,10 +61,10 @@ const creatAcount = () => {
             if(data == "existing acount"){
                 userData["mail"].value = "";
                 userData["confMail"].value = "";
-                triggerWarwingPopup("Ce mail est déjà utilié");
+                triggerWarwingPopup("Ce mail est déjà utilié"); // fonction du fichier Popup.js
             }
             else{
-                triggerAcceptPopup("Inscription réussie");
+                triggerAcceptPopup("Inscription réussie"); // fonction du fichier Popup.js
                 clearInputs(logUpInputs);
                 askToConnect();
             }
@@ -81,7 +81,7 @@ const verifData = () => {
     if (!hasFieldNull(logUpInputs)) {
         // console.log(mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g")) ? "oui" : "non");
         if (!mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g"))) {
-            triggerWarwingPopup("Format incorrecte du mail");
+            triggerWarwingPopup("Format incorrecte du mail"); // fonction du fichier Popup.js
             return;
         }
         else{
@@ -89,15 +89,15 @@ const verifData = () => {
                 creatAcount();
             }
             else if(!checkContentMail()){
-                triggerWarwingPopup("Mails non identiques");
+                triggerWarwingPopup("Mails non identiques"); // fonction du fichier Popup.js
             }
             else{
-                triggerWarwingPopup("Mdps non identiques");
+                triggerWarwingPopup("Mdps non identiques"); // fonction du fichier Popup.js
             }
         }
     }
     else {
-        triggerWarwingPopup("Remplissez tout les champs !");
+        triggerWarwingPopup("Remplissez tout les champs !"); // fonction du fichier Popup.js
     }
 }
 
@@ -126,7 +126,7 @@ const addEvent = () => {
 
 const initInscription = () => {
     closeBtn = document.querySelectorAll(".closeBtn");
-    logInBtn = document.querySelector(".animation button");
+    logInBtn = document.querySelector("#nav #log-in");
     logUpInputs = document.querySelectorAll("#inscrip input");
 
     userData["mail"] = document.querySelector("#inscrip input[name = mail]");

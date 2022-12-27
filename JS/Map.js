@@ -2,13 +2,13 @@ let mapProps;
 let map;
 let base;
 
-window.deleteSitesUserSites = () =>{
+window.deleteSitesUserSites = () => {
     // delete all sites
     // alert("ola");
     //getDefaultSites();
 }
 
-const getDefaultSites = () =>{
+const getDefaultSites = () => {
     let url = "./PHP/getDefaultMap.php";
     $.ajax({
         async: true,
@@ -16,10 +16,10 @@ const getDefaultSites = () =>{
         type: "POST",
         url: url,
         dataType: "json",
-        success: data =>{
+        success: data => {
             startMap(data);
         },
-        error: () =>{
+        error: () => {
             alert("Problem occured in ajax of Map.js");
         }
     });
@@ -44,22 +44,37 @@ const startMap = data => {
             })
         }).addTo(map)
             .bindPopup("<center>" +
-                            "<h2>" + siteInfo['nomS'] + "</h2>" +
-                       "</center>"+
-                       "<center>"+
-                            "<img width='100%' src='" + siteInfo['img'] + "' alt='img' />"+
-                       "</center>" + 
-                       "<center>" +
-                            "<p>" + siteInfo['detail'] + "</p>" +
-                       "</center>")
+                "<h2>" + siteInfo['nomS'] + "</h2>" +
+                "</center>" +
+                "<center>" +
+                "<img width='100%' src='" + siteInfo['img'] + "' alt='img' />" +
+                "</center>" +
+                "<center>" +
+                "<p>" + siteInfo['detail'] + "</p>" +
+                "</center>")
             .on("click", e => {
                 map.flyTo(e.latlng, 15);
             });
     });
 }
 
+window.mapVisibility = () => {
+    const map = document.getElementById("map");
+    // const cacher = document.getElementById("cacher");
+    // const animation = document.getElementById("anim");
+    let isConneted = sessionStorage.getItem("isConnected") == "false" ? false : true;
+    map.style.filter = isConneted ? "none" : "blur(10px)";
+    map.style.cursor = isConneted ? "pointer" : "not-allowed";
+    map.style.zIndex = isConneted ? 2 : -10;
+    // map.style['pointer-events'] = isConneted ? "auto" : "none"; 
+    //interdit use souri avec bug
+    // cacher.style.display = isConneted ? "none" : "block";
+    // anim.style.display = isConneted ? "block" : "none";
+}
+
 const initMap = () => {
     getDefaultSites();
+    mapVisibility();
 }
 
 $(window).ready(initMap);
