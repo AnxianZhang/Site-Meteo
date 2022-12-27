@@ -20,7 +20,7 @@
 
   <script src="./JS/Map.js"></script>
   <script src="./JS/MenuUi.js"></script>
-  <script src="./JS/addNewSite.js"></script>
+  <script src="./JS/AddNewSite.js"></script>
   <script src="./JS/LogUp.js"></script>
   <script src="./JS/LogIn.js"></script>
   <script src="./JS/LogOut.js"></script>
@@ -46,8 +46,9 @@
             </div>
           </div>
         </li>
-        <li class="nav_menu"><a>Vos Donnees</a>
-          <div>ooooo yeeee</div>
+        <li class="nav_menu" id = "user-data"><a>Vos Donnees</a>
+          <div>
+          </div>
         </li>
         <li class="nav_menu"><a>Vos Adresses personalisé</a>
           <div>hola</div>
@@ -67,8 +68,8 @@
     <p id="phpmsg">php debugo</p>
     <div id="map"></div>
     <div id="connect" class="fenet">
-      <button style="float: right;" class="closeBtn">✕</button><br>
-      <div>Connexion</div>
+      <button class="closeBtn">✕</button><br>
+      <div class = "form-id" >Connexion</div>
       <form class="form_submit"><br><br>
         <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="userNamee" type="text" placeholder="Adresse e-mail" /><br><br>
         <input required id="passwordd" type="password" placeholder="Mot de passe" /><br><br>
@@ -81,8 +82,8 @@
     </div>
 
     <div id="inscrip" class="fenet">
-      <button style="float: right;" class="closeBtn">✕</button>
-      <div id="font_login">S'inscrire</div>
+      <button class="closeBtn">✕</button>
+      <div class = "form-id">Inscription</div>
       <form class="form_submit"><br><br>
         <input required pattern="[A-Za-z]*" name="prenom" value="" class="linedeux" type="text" placeholder="Prénom" style="width: 43%;"/>
         <input required pattern="[A-Za-z]*" name="nom" value="" class="linedeux" type="text" placeholder="Nom de famille" style="width: 43%;"/><br><br>

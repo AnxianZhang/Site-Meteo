@@ -10,7 +10,7 @@ window.deleteSitesUserSites = () =>{
 }
 
 const getDefaultSites = () =>{
-    let url = "./PHP/getDefaultData.php";
+    let url = "./PHP/getDefaultMap.php";
     $.ajax({
         async: true,
         contentType: "application/x-www-form-urlencoded",

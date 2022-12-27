@@ -107,6 +107,7 @@ const addEvent = () => {
     document.querySelector("#connect form").addEventListener("submit", handleForm);
 
     document.querySelector("#inscrip button[type = submit]").addEventListener("click", verifData);
+    
     Array.from(closeBtn).forEach(button => {
         button.addEventListener("click", () => {
             Array.from(document.querySelectorAll(".fenet")).forEach(elem => {

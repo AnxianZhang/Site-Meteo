@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap');
+
+*{
+    font-family: 'Advent Pro', sans-serif;
+}
+
 .hamburger {
     display: none;
 }
+
 @media screen and (max-width: 800px),
 screen and (max-device-width:800px) {
     #nav {
@@ -92,13 +99,11 @@ screen and (max-device-width:800px) {
     }
 }
 
-
 body {
     padding: 0;
     margin: 0;
     width: 100%;
 }
-
 
 .hamburger div {
     width: 30px;
@@ -128,7 +133,7 @@ body {
     /* width: 20%; */
 }
 
-#nav ul {
+#nav ul{
     list-style: none;
     margin: 0;
     padding: 0;
@@ -152,7 +157,31 @@ body {
     /* border: coral 2px solid; */
     height: 2%;
     transition: all .2s 0s ease-in-out;
-    /* cursor: not-allowed; */
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#nav .nav_menu div{
+    text-transform: none;
+}
+
+button#modify{
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+.closeBtn{ 
+    background-color: transparent;
+    border: transparent;
+    color: #c0c5cb;
+    width: 30px;
+    font-size: 1.5em;
+    margin: .5em .5em 0 .5em;
+    display: flex;
 }
 
 #nav .nav_menu.open{

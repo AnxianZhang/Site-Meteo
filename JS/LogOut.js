@@ -12,12 +12,17 @@ const resetNewSiteForm = () =>{
     });
 }
 
+const resetUserData = () =>{
+    removeUserSites();
+    $(".nav_menu p").text("");
+}
+
 const initLogOut = () =>{
     $(".nav-bar .animation button#log-out").on("click", () =>{
         alert("bonjour");
         sessionStorage.setItem('isConnected', "false");
         resetNewSiteForm();
-        removeUserSites();
+        resetUserData();
         closeOpenMenu();
     });
 }

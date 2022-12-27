@@ -23,6 +23,7 @@ const addClickMenu = () =>{
         element.addEventListener("mouseover", () =>{
             isConneted = sessionStorage.getItem("isConnected") == "false" ? false : true;
             element.style.cursor = isConneted ? "pointer" : "not-allowed";
+            element.setAttribute("title", isConneted ? "" : "Connectez vous pour y accéder!")
         });
 
         element.addEventListener("click", () =>{
