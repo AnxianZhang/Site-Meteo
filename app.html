@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaflet.js AJAX Node.js</title>
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
@@ -25,13 +24,11 @@
   <script src="./JS/LogUp.js"></script>
   <script src="./JS/LogIn.js"></script>
   <script src="./JS/LogOut.js"></script>
+  <script src="./JS/Popup.js"></script>
 </head>
 
 <body>
   <div id="tt">
-    <div id="lphp">
-      <p id="phpmsg">php debugo</p>
-    </div>
     <div id="nav">
       <div class="hamburger">
         <div class="line1"></div>
@@ -39,10 +36,10 @@
         <div class="line3"></div>
       </div>
       <ul class="nav-bar">
-        <li id="anim" style="display: none;">
+        <li id="anim">
           <div class="animation">
-            <button id="btnc">Connexion</button>
-            <button id="log-out">Déconnexion</button>
+            <button>Connexion</button>
+            <button id = "log-out">Déconnexion</button>
             <div id="msg">
               <br>
               <p>Il pleut</p>
@@ -51,8 +48,7 @@
           </div>
         </li>
         <li class="nav_menu" id = "user-data"><a>Vos Donnees</a>
-          <div>
-          </div>
+          <div></div>
         </li>
         <li class="nav_menu"><a>Vos Adresses personalisé</a>
           <div>hola</div>
@@ -69,17 +65,19 @@
         </li>
       </ul>
     </div>
-    <div id="cacher"><button onclick="document.getElementById('connect').style.display='block'">Se conneceter</button>
+    <!-- <p id="phpmsg">php debugo</p> -->
+    <div id = "popup">
+      <img src="" alt="">
+      <h2>Connexion réussis</h2>  
     </div>
     <div id="map"></div>
     <div id="connect" class="fenet">
       <button class="closeBtn">✕</button><br>
       <div class = "form-id" >Connexion</div>
       <form class="form_submit"><br><br>
-        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="userNamee" type="text"
-          placeholder="Adresse e-mail" /><br><br>
+        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="userNamee" type="text" placeholder="Adresse e-mail" /><br><br>
         <input required id="passwordd" type="password" placeholder="Mot de passe" /><br><br>
-        <button id="logInn" type="submit">Se connecter</button>
+        <button id="logInn" type="submit">Se conneceter</button>
         <p><a>Mot de passe oublié ?</a></p>
       </form>
       <button
@@ -91,17 +89,14 @@
       <button class="closeBtn">✕</button>
       <div class = "form-id">Inscription</div>
       <form class="form_submit"><br><br>
-        <input required pattern="[A-Za-z]*" name="prenom" value="" class="linedeux" type="text" placeholder="Prénom"
-          style="width: 43%;" />
-        <input required pattern="[A-Za-z]*" name="nom" value="" class="linedeux" type="text"
-          placeholder="Nom de famille" style="width: 43%;" /><br><br>
-        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="mail" value="" type="text"
-          placeholder="Adresse e-mail" /><br><br>
-        <input required name="confMail" value="" type="text" placeholder="Confirmer adresse e-mail" /><br><br>
+        <input required pattern="[A-Za-z]*" name="prenom" value="" class="linedeux" type="text" placeholder="Prénom" style="width: 43%;"/>
+        <input required pattern="[A-Za-z]*" name="nom" value="" class="linedeux" type="text" placeholder="Nom de famille" style="width: 43%;"/><br><br>
+        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="mail" value="" type="text" placeholder="Adresse e-mail" /><br><br>
+        <input required  name="confMail" value="" type="text" placeholder="Confirmer adresse e-mail" /><br><br>
         <input required name="mdp" value="" type="password" placeholder="Mot de passe" /><br><br>
         <input required name="confMdp" value="" type="password" placeholder="Confirmer mot de passe" /><br><br>
         <p>En cliquant sur S'inscrire, vous acceptez nos <a>Conditions générales</a></p>
-        <button type="submit">S'inscrire</button>
+        <button type="submit" >S'inscrire</button>
         <!-- <div style="width: 100px; height: 50px; cursor: pointer; background-color: green;" id="sign-up">S'inscrire</div> -->
       </form>
     </div>

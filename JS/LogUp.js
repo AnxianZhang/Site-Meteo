@@ -13,7 +13,7 @@ const hasFieldNull = inputs => {
             input.classList.add("not-complet");
             isNull = true;
         }
-    isNull;
+    return isNull;
 }
 
 const checkContent = (checker, toCheck) => {
@@ -58,13 +58,13 @@ const creatAcount = () => {
         dataType: "text",
         data: data,
         success: data => {
-            document.querySelector("#phpmsg").innerHTML = data;
             if(data == "existing acount"){
                 userData["mail"].value = "";
                 userData["confMail"].value = "";
-                alert("le mail existe deja, veuillez en entrer un autre"); // --> fait un zoli css !
+                triggerWarwingPopup("Ce mail est déjà utilié");
             }
             else{
+                triggerAcceptPopup("Inscription réussie");
                 clearInputs(logUpInputs);
                 askToConnect();
             }
@@ -76,25 +76,28 @@ const creatAcount = () => {
 }
 
 const verifData = () => {
-    console.log(hasFieldNull(logUpInputs));
-    if (!userData["mail"].checkValidity()) {
-        alert("non");
-        return;
-    }
-    if (!hasFieldNull(logUpInputs) && checkContentMail() && checkContentMdp()) {
-        // alert("gg!");
-        creatAcount();
-    }
-    else { // faire le visuel CSS sur le formulaire !!!
-        if (!checkContentMail() && userData["mail"].value != "" && userData["confMail"].value != "") {
-            alert("Les e-mails ne correspondenet pas !");
+    let mail = userData["mail"].value;
+    // console.log(typeof(mail));
+    if (!hasFieldNull(logUpInputs)) {
+        // console.log(mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g")) ? "oui" : "non");
+        if (!mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g"))) {
+            triggerWarwingPopup("Format incorrecte du mail");
             return;
         }
-        if (!checkContentMdp() && userData["mdp"].value != "" && userData["confMdp"].value != "") {
-            alert("les mots de passes de correspondent pas !");
-            return;
+        else{
+            if(checkContentMail() && checkContentMdp()){    
+                creatAcount();
+            }
+            else if(!checkContentMail()){
+                triggerWarwingPopup("Mails non identiques");
+            }
+            else{
+                triggerWarwingPopup("Mdps non identiques");
+            }
         }
-        alert("Vous devez remplire tout les champs !");
+    }
+    else {
+        triggerWarwingPopup("Remplissez tout les champs !");
     }
 }
 

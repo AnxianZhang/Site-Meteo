@@ -41,10 +41,7 @@
             $commande->bindParam(':nomU', $fname);
             $commande->bindParam(':mail', $mail);
             $commande->bindParam(':mdp', $hash);
-
-            if($commande->execute()){
-                echo "commande executé";
-            }
+            $commande->execute();
         }
         catch(PDOException $e){
 			echo utf8_encode("Echec de l'insert dans creationCompte : " . $e->getMessage() . "\n");

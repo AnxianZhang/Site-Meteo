@@ -19,11 +19,11 @@ const resetUserData = () =>{
 
 const initLogOut = () =>{
     $(".nav-bar .animation button#log-out").on("click", () =>{
-        alert("bonjour");
         sessionStorage.setItem('isConnected', "false");
         resetNewSiteForm();
         resetUserData();
         closeOpenMenu();
+        triggerDisconnectPopup("Déconnexion réussie");
     });
 }
 

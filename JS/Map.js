@@ -4,8 +4,7 @@ let base;
 
 window.deleteSitesUserSites = () =>{
     // delete all sites
-
-    alert("ola");
+    // alert("ola");
     //getDefaultSites();
 }
 

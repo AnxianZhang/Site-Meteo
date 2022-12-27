@@ -34,14 +34,13 @@
     if($bdMdp != ""){ // compte  existe (si le mot de passe du compet et pas vide)
         if(password_verify($password, $bdMdp)){
             $_SESSION["userData"] = $profil;
-            echo "connexion reussi";
+            echo "Connexion reussi";
         }
         else{
-            echo "mdp faux";
+            echo "Mot de passe faux";
         }
     }
     else{
-        echo "compte n'existe pas";
+        echo "Compte inexistant";
     }
-    
 ?>

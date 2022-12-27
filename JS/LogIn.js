@@ -19,8 +19,8 @@ $(document).ready(() => {
                 alert("Problem occured in ajax of LogIn.js (1rt ajax)");
             },
             success: data => {
-                document.querySelector("#phpmsg").innerHTML = data; // add css
-                if (data == "connexion reussi"){
+                if (data == "Connexion reussi"){
+                    triggerAcceptPopup(data);
                     sessionStorage.setItem('isConnected', "true");
                     $("#connect").css("display", "none");
 
@@ -37,12 +37,15 @@ $(document).ready(() => {
                             userData.html(userData.html() + "<p><b>Prenom: </b>" + data["prenomU"] + "</p>");
                             userData.html(userData.html() + "<p><b>Email: </b>" + data["mail"] + "</p>");
                             userData.html(userData.html() + "<p><b>Nombre de lieux : </b>" + "RIEN" + "</p>");
-                            userData.html(userData.html() + "<button id = 'modify'>Modifier</button>");
+                            userData.html(userData.html() + "<button id='modify'>Modifier</button>");
                         },
                         error: () =>{
                             alert("Problem occured in ajax of LogIn.js (2ed ajax)");
                         }
                     });
+                }
+                else{
+                    triggerWarwingPopup(data);
                 }
             }
         });

@@ -85,14 +85,14 @@ screen and (max-device-width:800px) {
     }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 630px){
     #nav {
         width: 55%;
         font-size: 0.7em;
     }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 460px){
     #nav {
         width: 70%;
         font-size: 0.7em;
@@ -114,34 +114,13 @@ body {
 }
 
 #tt {
-    max-height: 100vh;
-}
-
-#lphp {
-    width: 100%;
-    height: 5vh;
-}
-
-#phpmsg {
-    margin: 0;
-    padding: 0.3em 0;
-    text-align: center;
-}
-
-#cacher {
-    z-index: 100;
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    background: transparent;
-    text-align: center;
+    height: 100vh;
 }
 
 #map {
-    height: 95vh;
+    height: 100%;
     position: relative;
     z-index: 2;
-    filter: blur(10px);
     /* border: 2px red solid; */
 }
 
@@ -160,7 +139,7 @@ body {
     padding: 0;
     align-items: center;
     text-transform: uppercase;
-    height: 95vh;
+    height: 100vh;
 }
 
 #nav ul li {
@@ -174,7 +153,7 @@ body {
     padding: 1em;
 }
 
-#nav .nav_menu {
+#nav .nav_menu{
     /* border: coral 2px solid; */
     height: 2%;
     transition: all .2s 0s ease-in-out;
@@ -205,11 +184,11 @@ button#modify{
     display: flex;
 }
 
-#nav .nav_menu.open {
+#nav .nav_menu.open{
     color: #333;
-    background: rgb(170, 211, 223);
+    background: rgb(170,211,223);
     height: 30%;
-    cursor: auto;
+    cursor:auto;
 }
 
 .animation {
@@ -230,4 +209,40 @@ button#modify{
 
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+#popup{
+    width: 20em;
+    height: 5.25em;
+    z-index: 10;
+    position: absolute;
+    background-color: #333;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    border-radius: 10px;
+    text-align: center;
+    /* border: solid yellow 2px; */
+    visibility: hidden;
+    transition: all .2s 0s ease-in-out;
+}
+
+#popup.trigger{
+    visibility: visible;
+    top: 12.5%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#popup h2{
+    /* border: solid cyan 2px; */
+    position: relative;
+    color: rgb(170,211,223);
+    transform: translateY(-2.75em);
+}
+
+#popup img{
+    /* border: red solid 2px; */
+    width: 5em;
+    /* position: absolute;   */
+    transform: translateY(-3em);
 }
