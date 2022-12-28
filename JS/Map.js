@@ -60,16 +60,13 @@ const startMap = data => {
 
 window.mapVisibility = () => {
     const map = document.getElementById("map");
-    // const cacher = document.getElementById("cacher");
-    // const animation = document.getElementById("anim");
     let isConneted = sessionStorage.getItem("isConnected") == "false" ? false : true;
+
     map.style.filter = isConneted ? "none" : "blur(10px)";
     map.style.cursor = isConneted ? "pointer" : "not-allowed";
     map.style.zIndex = isConneted ? 2 : -10;
-    // map.style['pointer-events'] = isConneted ? "auto" : "none"; 
-    //interdit use souri avec bug
-    // cacher.style.display = isConneted ? "none" : "block";
-    // anim.style.display = isConneted ? "block" : "none";
+
+    document.querySelector(".animation").style.filter = isConneted ? "none" : "blur(10px)";
 }
 
 const initMap = () => {

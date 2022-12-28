@@ -78,6 +78,8 @@ input:invalid {
     width: 8.4em;
 }
 
+/*========== button liked witch forms ==========*/
+
 #log {
     width: 100%;
     position: absolute;
@@ -88,6 +90,8 @@ input:invalid {
 }
 
 #log button {
+    border-color: transparent;
+    border-radius: 10px;
     width: 8em;
     height: 3em;
     box-shadow: inset 0 0 0 4px #333;
@@ -125,6 +129,7 @@ input:invalid {
 
 #log button:hover::before,
 #log button:hover::after{
+    border-radius: 10px;
     border-color: #9c88ff;
     transition: border-color 0s, width 0.25s, height 0.25s;
     width: 100%;
@@ -137,4 +142,13 @@ input:invalid {
 
 #log button:hover::after{
     transition-delay: 0s, 0.25s, 0s;
+}
+
+#log #log-in{
+    cursor: pointer;
+}
+
+#log #log-out{
+    cursor: not-allowed;
+    transition: all .2s 0s ease-in-out;
 }

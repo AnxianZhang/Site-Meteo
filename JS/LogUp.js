@@ -1,4 +1,4 @@
-let closeBtn, logUpInputs, logInBtn;
+let closeBtn, logUpInputs, logInBtn, logUpBtn;
 let userData = {
     mail: "",
     confMail: "",
@@ -61,10 +61,10 @@ const creatAcount = () => {
             if(data == "existing acount"){
                 userData["mail"].value = "";
                 userData["confMail"].value = "";
-                triggerWarwingPopup("Ce mail est déjà utilié"); // fonction du fichier Popup.js
+                warwingPopup("Ce mail est déjà utilié"); // fonction du fichier Popup.js
             }
             else{
-                triggerAcceptPopup("Inscription réussie"); // fonction du fichier Popup.js
+                acceptPopup("Inscription réussie"); // fonction du fichier Popup.js
                 clearInputs(logUpInputs);
                 askToConnect();
             }
@@ -81,7 +81,7 @@ const verifData = () => {
     if (!hasFieldNull(logUpInputs)) {
         // console.log(mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g")) ? "oui" : "non");
         if (!mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g"))) {
-            triggerWarwingPopup("Format incorrecte du mail"); // fonction du fichier Popup.js
+            warwingPopup("Format incorrecte du mail"); // fonction du fichier Popup.js
             return;
         }
         else{
@@ -89,15 +89,15 @@ const verifData = () => {
                 creatAcount();
             }
             else if(!checkContentMail()){
-                triggerWarwingPopup("Mails non identiques"); // fonction du fichier Popup.js
+                warwingPopup("Mails non identiques"); // fonction du fichier Popup.js
             }
             else{
-                triggerWarwingPopup("Mdps non identiques"); // fonction du fichier Popup.js
+                warwingPopup("Mdps non identiques"); // fonction du fichier Popup.js
             }
         }
     }
     else {
-        triggerWarwingPopup("Remplissez tout les champs !"); // fonction du fichier Popup.js
+        warwingPopup("Tout les champs sont obligatoires"); // fonction du fichier Popup.js
     }
 }
 
@@ -114,19 +114,22 @@ const addEvent = () => {
     Array.from(closeBtn).forEach(button => {
         button.addEventListener("click", () => {
             Array.from(document.querySelectorAll(".fenet")).forEach(elem => {
-                    elem.style.display = 'none';
-                });
+                elem.style.display = 'none';
             });
+            tipsPopup(); // fonction declare dans Popop.js
+        });
     });
 
-    logInBtn.addEventListener("click", ()=>{
-        document.querySelector("#connect").style.display = "block";
+    logUpBtn.addEventListener("click", () =>{
+        document.getElementById('inscrip').style.display='block';
+        document.getElementById('connect').style.display='none';
     });
 }
 
 const initInscription = () => {
     closeBtn = document.querySelectorAll(".closeBtn");
     logInBtn = document.querySelector("#nav #log-in");
+    logUpBtn = document.querySelector("#connect #log-up");
     logUpInputs = document.querySelectorAll("#inscrip input");
 
     userData["mail"] = document.querySelector("#inscrip input[name = mail]");

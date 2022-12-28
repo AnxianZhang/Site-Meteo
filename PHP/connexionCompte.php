@@ -28,8 +28,12 @@
         }
     }
 
+    if ($username == "" || $password == ""){
+        echo "Tout les champs sont obligatoires";
+        return;
+    }
+
     $bdMdp = isExistingAcount($username, $profil);
-    
 
     if($bdMdp != ""){ // compte  existe (si le mot de passe du compet et pas vide)
         if(password_verify($password, $bdMdp)){
@@ -37,10 +41,10 @@
             echo "Connexion reussi";
         }
         else{
-            echo "Mot de passe faux";
+            echo "Mot de passe incorrecte";
         }
     }
     else{
-        echo "Compte inexistant";
+        echo "Le compte n'existe pas";
     }
 ?>

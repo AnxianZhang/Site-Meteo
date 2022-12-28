@@ -1,6 +1,11 @@
 $(document).ready(() => {
     sessionStorage.setItem('isConnected', "false");
 
+    $("#nav #log-in").on("click", ()=>{
+        $("#connect").show();
+        tipsPopup(); // fonction declare dans Popop.js
+    });
+
     $("#logInn").on("click", () => {
         let url = "./PHP/connexionCompte.php";
         let data = {
@@ -22,7 +27,9 @@ $(document).ready(() => {
                 if (data == "Connexion reussi"){
                     sessionStorage.setItem('isConnected', "true");
                     $("#connect").css("display", "none");
-                    triggerAcceptPopup(data); // fonction du fichier Popup.js
+                    $("#nav #log-out").attr("disabled", false).css("cursor", "pointer");
+                    $("#connect input").val("");
+                    acceptPopup(data); // fonction du fichier Popup.js
                     mapVisibility(); // fonction du fichier Map.js
 
                     $.ajax({
@@ -46,9 +53,9 @@ $(document).ready(() => {
                     });
                 }
                 else{
-                    triggerWarwingPopup(data); // fonction du fichier Popup.js
+                    warwingPopup(data); // fonction du fichier Popup.js
                 }
             }
         });
-    })
+    });
 });
