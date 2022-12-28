@@ -6,12 +6,6 @@ CREATE TABLE IF NOT EXISTS USER_DATA(
     mdp VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS USER_LIEUX(
-    numU INTEGER REFERENCES USER(numU),
-    numS INTEGER REFERENCES LIEUX(NumS)
-);
-
-
 ---------- le mot de passe oiur ce compte est modo ----------
 INSERT INTO USER_DATA VALUES
 (NULL, "mo", "do", "modo@gmail.com", "$2y$10$sC2JSj6k12k63K6xLYOlMOv9ydlCP3fHOHd1O5Zx3H/i.iYl0dQrO");
