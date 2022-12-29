@@ -76,6 +76,7 @@ input:invalid {
 #add-new-site input[placeholder="lon"],
 #add-new-site input[placeholder="lat"] {
     width: 8.4em;
+    cursor: not-allowed;
 }
 
 /*========== button liked witch forms ==========*/

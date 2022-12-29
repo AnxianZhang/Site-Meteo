@@ -1,14 +1,5 @@
-// const initAddNewSite = () =>{
-//     Array.from(document.querySelectorAll(".nav_menu")).forEach(element =>{
-//         element.addEventListener("click", ()=>{
-//             element.classList.add("open");
-//             Array.from(document.querySelectorAll(".nav_menu")).forEach(elem =>{
-//                 if (elem != element){
-//                     elem.classList.remove("open");
-//                 }
-//             });
-//         });
-//     });
-// }
+const initAddNewSite = () =>{
 
-// window.addEventListener("DOMContentLoaded", initAddNewSite);
+}
+
+$(window).ready(initAddNewSite);

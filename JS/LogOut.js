@@ -19,7 +19,7 @@ const resetUserData = () =>{
 
 const initLogOut = () =>{
     $("#nav #log-out").on("click", function (){
-        $(this).attr("disabled", true).css("curso", "not-allowed");
+        $(this).attr("disabled", true).css("cursor", "not-allowed");
         sessionStorage.setItem('isConnected', "false");
         resetNewSiteForm();
         resetUserData();
