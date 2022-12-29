@@ -19,12 +19,12 @@
   <link rel="stylesheet" href="./CSS/form.css">
 
   <script src="./JS/MenuUi.js"></script>
-  <script src="./JS/AddNewSite.js"></script>
   <script src="./JS/LogUp.js"></script>
   <script src="./JS/LogIn.js"></script>
   <script src="./JS/LogOut.js"></script>
   <script src="./JS/Popup.js"></script>
   <script src="./JS/Map.js"></script>
+  <script src="./JS/AddNewSite.js"></script>
 </head>
 
 <body>
@@ -53,12 +53,15 @@
         </li>
         <li class="nav_menu"><a>Ajoutez un lieux</a>
           <div id="add-new-site">
-            <input type="text" disabled="true" placeholder="lon" title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées">
-            <input type="text" disabled="true" placeholder="lat" title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées"><br>
-            <input type="text" placeholder="nom"><br>
-            <input type="file" id="input-icon"><br>
-            <input type="file" id="input-img"><br>
+            <input required type="text" disabled="true" placeholder="lon" title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées">
+            <input required type="text" disabled="true" placeholder="lat" title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées"><br>
+            <input required type="text" placeholder="nom"><br>
+            <label for="icon">Choisisez une icon</label><br>
+            <input name="icon" type="file" id="input-icon"><br>
+            <label for="img">Choisisez une image</label><br>
+            <input name="img" type="file" id="input-img"><br>
             <textarea cols="0" rows="5" placeholder="ajoutez des détails au lieux"></textarea>
+            <button>Ajouter</button>
           </div>
         </li>
         <div id = "log">

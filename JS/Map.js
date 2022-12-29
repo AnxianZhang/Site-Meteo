@@ -25,6 +25,14 @@ const getDefaultSites = () => {
     });
 };
 
+const addOnClickToMap = e =>{
+    map.addEventListener("click", function(e){
+        // alert(e.latlng.lat + " " + e.latlng.lng);
+        document.querySelector("#add-new-site input[placeholder = lon]").value = e.latlng.lng;
+        document.querySelector("#add-new-site input[placeholder = lat]").value = e.latlng.lat;
+    });
+}
+
 const startMap = data => {
     mapProps = {
         center: [24.92629, 23.02734],
@@ -56,6 +64,8 @@ const startMap = data => {
                 map.flyTo(e.latlng, 15);
             });
     });
+
+    addOnClickToMap();
 }
 
 window.mapVisibility = () => {

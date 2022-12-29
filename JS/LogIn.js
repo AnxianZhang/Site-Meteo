@@ -28,6 +28,7 @@ $(document).ready(() => {
                     sessionStorage.setItem('isConnected', "true");
                     $("#connect").css("display", "none");
                     $("#nav #log-out").attr("disabled", false).css("cursor", "pointer");
+                    $("#nav #log-in").attr("disabled", true).css("cursor", "not-allowed");
                     $("#connect input").val("");
                     acceptPopup(data); // fonction du fichier Popup.js
                     mapVisibility(); // fonction du fichier Map.js
