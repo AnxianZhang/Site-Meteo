@@ -50,9 +50,9 @@ input:invalid {
     color: rgb(211, 0, 0);
 }
 
-#add-new-site input{
+/* #add-new-site input {
     margin-bottom: .3em;
-}
+} */
 
 /* #add-new-site{
     border: red 2px solid;
@@ -86,6 +86,28 @@ input:invalid {
     margin-top: .5em;
 }
 
+@media screen and (max-width: 800px) {
+    #add-new-site * {
+        width: 15em;
+    }
+
+    #add-new-site input[placeholder="lon"],
+    #add-new-site input[placeholder="lat"] {
+        width: 7em;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    #add-new-site * {
+        width: 10em;
+    }
+
+    #add-new-site input[placeholder="lon"],
+    #add-new-site input[placeholder="lat"] {
+        width: 4em;
+    }
+}
+
 /*========== button liked witch forms ==========*/
 
 #log {
@@ -109,7 +131,7 @@ input:invalid {
 }
 
 #log button::before,
-#log button::after{
+#log button::after {
     border: 0 solid transparent;
     box-sizing: border-box;
     content: "";
@@ -121,22 +143,22 @@ input:invalid {
     right: 0;
 }
 
-#log button::before{
+#log button::before {
     border-bottom-width: 4px;
     border-left-width: 4px;
 }
 
-#log button::after{
+#log button::after {
     border-top-width: 4px;
     border-right-width: 4px;
 }
 
-#log button:hover{
+#log button:hover {
     color: #9c88ff;
 }
 
 #log button:hover::before,
-#log button:hover::after{
+#log button:hover::after {
     border-radius: 10px;
     border-color: #9c88ff;
     transition: border-color 0s, width 0.25s, height 0.25s;
@@ -144,19 +166,19 @@ input:invalid {
     height: 100%;
 }
 
-#log button:hover::before{
+#log button:hover::before {
     transition-delay: 0s, 0s, 0.25s;
 }
 
-#log button:hover::after{
+#log button:hover::after {
     transition-delay: 0s, 0.25s, 0s;
 }
 
-#log #log-in{
+#log #log-in {
     cursor: pointer;
 }
 
-#log #log-out{
+#log #log-out {
     cursor: not-allowed;
     transition: all .2s 0s ease-in-out;
 }

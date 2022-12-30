@@ -127,8 +127,9 @@ window.mapVisibility = () => {
 }
 
 const initMap = () => {
+    sessionStorage.setItem('isConnected', "false");
     getDefaultSites();
     mapVisibility();
 }
 
-$(window).ready(initMap);
+window.addEventListener("DOMContentLoaded", initMap);

@@ -86,19 +86,19 @@ screen and (max-device-width:800px) {
     }
 }
 
-@media screen and (max-width: 630px){
+/* @media screen and (max-width: 720px){
     #nav {
-        width: 55%;
+        width: 50%;
         font-size: 0.7em;
     }
 }
 
 @media screen and (max-width: 460px){
     #nav {
-        width: 70%;
+        width: 50%;
         font-size: 0.7em;
     }
-}
+} */
 
 body {
     padding: 0;
@@ -148,6 +148,7 @@ body {
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
     position: relative;
     width: 17.278em;
+    /* width: 35%; */
 }
 
 #nav ul{
