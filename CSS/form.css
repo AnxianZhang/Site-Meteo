@@ -50,6 +50,10 @@ input:invalid {
     color: rgb(211, 0, 0);
 }
 
+#add-new-site input{
+    margin-bottom: .3em;
+}
+
 /* #add-new-site{
     border: red 2px solid;
     width: 80%;
@@ -77,6 +81,7 @@ input:invalid {
 #add-new-site input[placeholder="lat"] {
     width: 8.4em;
     cursor: not-allowed;
+    margin-top: .5em;
 }
 
 /*========== button liked witch forms ==========*/

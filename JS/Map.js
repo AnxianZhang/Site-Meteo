@@ -25,11 +25,35 @@ const getDefaultSites = () => {
     });
 };
 
-const addOnClickToMap = e =>{
+const addSearchMeteo = e =>{
     map.addEventListener("click", function(e){
-        // alert(e.latlng.lat + " " + e.latlng.lng);
-        document.querySelector("#add-new-site input[placeholder = lon]").value = e.latlng.lng;
-        document.querySelector("#add-new-site input[placeholder = lat]").value = e.latlng.lat;
+        let lon = e.latlng.lng, lat = e.latlng.lat;
+        document.querySelector("#add-new-site input[placeholder = lon]").value = lon;
+        document.querySelector("#add-new-site input[placeholder = lat]").value = lat;
+
+        let url = "https://api.openweathermap.org/data/2.5/weather";
+        let data = { // une autre façon possible (data3)
+            // q: ville,
+            appid: "279b4be6d54c8bf6ea9b12275a567156",
+            units: "metric",
+            lat: lat,
+            lon: lon
+        };
+        $.ajax({
+            async: true,
+            contentType: "application/x-www-form-urlencoded",
+            type: "GET",
+            dataType: "json",
+            url: url,
+            data: data,
+            error: () =>{
+                alert("problem occured in ajax in Map.js at addSearchMeteo function");
+            },
+            success: data =>{
+                document.querySelector(".animation img").src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+                document.querySelector(".animation p").innerHTML = data.weather[0].description + "<br>" + data.main.temp + "°C";
+            }
+        });
     });
 }
 
@@ -65,7 +89,7 @@ const startMap = data => {
             });
     });
 
-    addOnClickToMap();
+    addSearchMeteo();
 }
 
 window.mapVisibility = () => {

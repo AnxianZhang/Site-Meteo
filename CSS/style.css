@@ -45,6 +45,7 @@ screen and (max-device-width:800px) {
         z-index: 3;
         height: 100vh;
     }
+    
 
     .nav-bar li {
         opacity: 0;
@@ -125,6 +126,12 @@ body {
     /* cursor: not-allowed; */
 }
 
+.nav-bar .animation img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 #nav {
     z-index: 3;
     float: right;
@@ -193,9 +200,10 @@ button#modify{
 }
 
 .animation {
+    /* background-color: #636363; */
     /*background-image change selon meteo*/
-    background-image: url('https://cdn.kikinote.net/wp-content/uploads/2013/10/Google-Chrome%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD-%E4%B8%8B%E9%9B%A8%E8%81%B2%E9%9F%B3%E6%A8%82MP3.gif');
-    height: 15em;
+    /* background-image: url('https://cdn.kikinote.net/wp-content/uploads/2013/10/Google-Chrome%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD-%E4%B8%8B%E9%9B%A8%E8%81%B2%E9%9F%B3%E6%A8%82MP3.gif'); */
+    height: 10em;
     right: 0;
 }
 

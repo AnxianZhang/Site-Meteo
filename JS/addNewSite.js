@@ -1,5 +1,5 @@
 const initAddNewSite = () =>{
-    $("#add-new-site").on("click", ()=>{
+    $("#add-new-site button").on("click", ()=>{
         $.ajax({
             // faire le lien avec addNewSite.php
         });
