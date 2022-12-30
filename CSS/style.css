@@ -47,9 +47,11 @@ screen and (max-device-width:800px) {
     }
 
     #log {
-        display: flex;
-        flex-wrap: wrap;
+        /* display: flex; */
+        /* flex-wrap: wrap; */
         flex-direction: column;
+        /* justify-content: center; */
+        left: 5.5%;
     }
 
     #log button {
@@ -59,6 +61,26 @@ screen and (max-device-width:800px) {
     button#modify {
         left: 1em;
         width: fit-content;
+    }
+
+    #meteo {
+        display: flex;
+    }
+
+    .nav-bar .animation img {
+        width: 5em;
+        height: 5em;
+        /* bottom: 0; */
+        /* position: inherit; */
+        left: 10em;
+        bottom: 2em;
+        right: auto;
+        /* align-self: flex-end; */
+        /* border-radius: 50px; */
+        /* position:; */
+        /* bottom: 1em;
+        right: 1em; */
+        /* left: 1em; */
     }
 
     .nav-bar li {
@@ -142,18 +164,14 @@ body {
 
 .nav-bar .animation img {
     background-color: #9c88ff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    /* position: absolute; */
-    /* bottom: 1em; */
-    /* right: 1em; */
-    left: 1em;
-}
-
-#meteo {
-    display: flex;
-    /* align-items: center; */
+    display: none;
+    /* width: 50px;
+    height: 50px; */
+    border-radius: 50% 50% 50% 50% / 66% 66% 34% 34% ;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    /* left: 1em; */
 }
 
 .nav-bar .animation p {
@@ -251,7 +269,7 @@ button#modify {
     /* background-color: #636363; */
     /*background-image change selon meteo*/
     /* background-image: url('https://cdn.kikinote.net/wp-content/uploads/2013/10/Google-Chrome%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD-%E4%B8%8B%E9%9B%A8%E8%81%B2%E9%9F%B3%E6%A8%82MP3.gif'); */
-    /* height: 12em; */
+    height: 12em;
     right: 0;
     width: 100%;
 }

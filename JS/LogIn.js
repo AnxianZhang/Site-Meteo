@@ -4,15 +4,16 @@ $(document).ready(() => {
         return this[0].checkValidity()
     }
     const updateUserData = (nom, prenom) => {
+        alert(nom + " : " + prenom);
         if (nom == "") {
-            $("#userPersoDada p#pFName").html("<p id='pFName'><b>Nom: </b> " + prenom + "</p>");
+            $("#userPersoDada p#pLName").replaceWith("<p id='pLName'><b>Prenom: </b> " + prenom + "</p>");
         }
         else if (prenom == "") {
-            $("#userPersoDada p#pLName").html("<p id='pLName'><b>Prenom: </b> " + nom + "</p>");
+            $("#userPersoDada p#pFName").replaceWith("<p id='pFName'><b>Nom: </b> " + nom + "</p>");
         }
         else {
-            $("#userPersoDada p#pFName").html("<p id='pFName'><b>Nom: </b> " + nom + "</p>");
-            $("#userPersoDada p#pLName").html("<p id='pLName'><b>Prenom: </b> " + prenom  + "</p>");
+            $("#userPersoDada p#pFName").replaceWith("<p id='pFName'><b>Nom: </b> " + nom + "</p>");
+            $("#userPersoDada p#pLName").replaceWith("<p id='pLName'><b>Prenom: </b> " + prenom  + "</p>");
         }
     }
 
@@ -25,16 +26,9 @@ $(document).ready(() => {
                 warwingPopup("Un des champs doit être remplis"); // dans popup.js
                 return;
             }
-            else if (nvNom.val() != "" && nvPrenom.val() != "" && (!nvNom.isValid() || !nvPrenom.isValid())) {
+            else if ((nvNom.val() != "" && nvPrenom.val() != "" && (!nvNom.isValid() || !nvPrenom.isValid())) ||
+                        (nvNom.val() != "" && !nvNom.isValid()) ||(nvPrenom.val() != "" && !nvPrenom.isValid())) {
                 warwingPopup("Veuillez respecter le format"); // dans popup.js    
-                return;
-            }
-            else if (nvNom.val() != "" && !nvNom.isValid()) {
-                warwingPopup("Veuillez respecter le format"); // dans popup.js    
-                return;
-            }
-            else if (nvPrenom.val() != "" && !nvPrenom.isValid()) {
-                warwingPopup("Veuillez respecter le format"); // dans popup.js
                 return;
             }
             let url = "./PHP/modifyPerData.php";
@@ -55,6 +49,8 @@ $(document).ready(() => {
                     // alert(data);
                     acceptPopup(data);
                     updateUserData(nvNom.val(), nvPrenom.val());
+                    $("#modif input").val("");
+                    $("#modif .closeBtn").click();
                 },
                 error: () => {
                     alert("Problem occured in ajax of ModifData.js");

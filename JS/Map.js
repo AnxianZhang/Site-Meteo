@@ -72,8 +72,11 @@ const addSearchMeteo = e =>{
                 alert("problem occured in ajax in Map.js at addSearchMeteo function");
             },
             success: data =>{
+                document.querySelector(".nav-bar .animation img").style.display = "block";
                 document.querySelector(".animation img").src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
-                document.querySelector(".animation p").innerHTML = data.weather[0].description + "<br><br>" + data.main.temp + "°C";
+                let description = data.weather[0].description;
+                let capitalize = description.charAt(0).toUpperCase() + description.slice(1);
+                document.querySelector(".animation p").innerHTML = capitalize + "<br><br>" + data.main.temp + "°C";
                 showLocationName(lat, lon);
             }
         });

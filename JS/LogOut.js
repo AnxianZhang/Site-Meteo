@@ -15,11 +15,14 @@ const resetNewSiteForm = () =>{
 const resetUserData = () =>{
     removeUserSites();
     $("#userPersoDada").empty();
+    $("#validModif").off("click");
+    $("#modif input").val("");
 }
 
 const resetMeteo = () =>{
     $("#meteo p").text("Cliquez à un endroit sur la map pour obtenir la méteo");
     $("#meteo img").attr("src", "");
+    document.querySelector(".nav-bar .animation img").style.display = "none";
 }
 
 const initLogOut = () =>{
