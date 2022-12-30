@@ -136,6 +136,7 @@ body {
 
 .nav-bar .animation p{
     width: 9em;
+    font-weight: bold;
     /* border: solid red 2px; */
     text-transform: none;
 }
@@ -146,7 +147,7 @@ body {
     background-color: #333;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
     position: relative;
-    /* width: 20%; */
+    width: 17.278em;
 }
 
 #nav ul{
@@ -241,11 +242,13 @@ button#modify{
     text-align: center;
     /* border: solid yellow 2px; */
     visibility: hidden;
+    /* display: none; */
     transition: all .2s 0s ease-in-out;
 }
 
 #popup.trigger{
     visibility: visible;
+    /* display: block; */
     top: 12.5%;
     transform: translate(-50%, -50%) scale(1);
 }

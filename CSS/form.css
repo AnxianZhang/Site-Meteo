@@ -69,12 +69,14 @@ input:invalid {
 }
 
 .nav_menu>div {
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
     /* transition: all 0.4s 0s ease-in-out; */
 }
 
 .nav_menu.open>div {
-    visibility: visible;
+    /* visibility: visible; */
+    display: block;
 }
 
 #add-new-site input[placeholder="lon"],
