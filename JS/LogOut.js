@@ -14,7 +14,7 @@ const resetNewSiteForm = () =>{
 
 const resetUserData = () =>{
     removeUserSites();
-    $(".nav_menu p").text("");
+    $("#userPersoDada").empty();
 }
 
 const resetMeteo = () =>{

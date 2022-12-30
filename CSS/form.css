@@ -88,12 +88,12 @@ input:invalid {
 
 @media screen and (max-width: 800px) {
     #add-new-site * {
-        width: 15em;
+        width: 12em;
     }
 
     #add-new-site input[placeholder="lon"],
     #add-new-site input[placeholder="lat"] {
-        width: 7em;
+        width: 5.5em;
     }
 }
 
@@ -104,7 +104,7 @@ input:invalid {
 
     #add-new-site input[placeholder="lon"],
     #add-new-site input[placeholder="lat"] {
-        width: 4em;
+        width: 4.5em;
     }
 }
 

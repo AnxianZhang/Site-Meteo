@@ -106,8 +106,9 @@ const addEvent = () => {
         e.preventDefault();
     }
 
-    document.querySelector("#inscrip form").addEventListener("submit", handleForm);
-    document.querySelector("#connect form").addEventListener("submit", handleForm);
+    document.querySelectorAll(".form_submit").forEach(form =>{
+        form.addEventListener("submit", handleForm);
+    });
 
     document.querySelector("#inscrip button[type = submit]").addEventListener("click", verifData);
     
