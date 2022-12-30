@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap');
 
-*{
+* {
     font-family: 'Advent Pro', sans-serif;
 }
 
@@ -45,7 +45,21 @@ screen and (max-device-width:800px) {
         z-index: 3;
         height: 100vh;
     }
-    
+
+    #log {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    #log button {
+        margin: 0.5em 1em;
+    }
+
+    button#modify {
+        left: 1em;
+        width: fit-content;
+    }
 
     .nav-bar li {
         opacity: 0;
@@ -126,15 +140,23 @@ body {
     /* cursor: not-allowed; */
 }
 
-.nav-bar .animation img{
+.nav-bar .animation img {
     background-color: #9c88ff;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
+    /* position: absolute; */
+    /* bottom: 1em; */
+    /* right: 1em; */
+    left: 1em;
 }
 
-.nav-bar .animation p{
+#meteo {
+    display: flex;
+    /* align-items: center; */
+}
+
+.nav-bar .animation p {
     width: 9em;
     font-weight: bold;
     /* border: solid red 2px; */
@@ -151,13 +173,13 @@ body {
     /* width: 35%; */
 }
 
-#nav ul{
+#nav ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 2.5em 0 0 0;
     align-items: center;
     text-transform: uppercase;
-    height: 100vh;
+    height: calc(100vh - 2.5em);
 }
 
 #nav ul li {
@@ -171,7 +193,7 @@ body {
     padding: 1em;
 }
 
-#nav .nav_menu{
+#nav .nav_menu {
     /* border: coral 2px solid; */
     height: 2%;
     transition: all .2s 0s ease-in-out;
@@ -182,17 +204,17 @@ body {
     user-select: none;
 }
 
-#nav .nav_menu div{
+#nav .nav_menu div {
     text-transform: none;
 }
 
-button#modify{
+button#modify {
     position: absolute;
     bottom: 1em;
     right: 1em;
 }
 
-.closeBtn{ 
+.closeBtn {
     background-color: transparent;
     border: transparent;
     color: #c0c5cb;
@@ -202,19 +224,36 @@ button#modify{
     display: flex;
 }
 
-#nav .nav_menu.open{
+#nav .nav_menu.open {
     color: #333;
-    background: rgb(170,211,223);
+    background: rgb(170, 211, 223);
     height: 30%;
-    cursor:auto;
+    cursor: auto;
+    /* overflow: scroll; */
+    /*ugly*/
+}
+
+#nav .nav_menu.open::-webkit-scrollbar {
+    display: none;
+    /* Chrome Safari */
+}
+
+#nav .nav_menu.open {
+    scrollbar-width: none;
+    /* firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .animation {
     /* background-color: #636363; */
     /*background-image change selon meteo*/
     /* background-image: url('https://cdn.kikinote.net/wp-content/uploads/2013/10/Google-Chrome%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD-%E4%B8%8B%E9%9B%A8%E8%81%B2%E9%9F%B3%E6%A8%82MP3.gif'); */
-    height: 12em;
+    /* height: 12em; */
     right: 0;
+    width: 100%;
 }
 
 .toggle .line1 {
@@ -230,7 +269,7 @@ button#modify{
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-#popup{
+#popup {
     width: 20em;
     height: 5.25em;
     z-index: 10;
@@ -247,21 +286,21 @@ button#modify{
     transition: all .2s 0s ease-in-out;
 }
 
-#popup.trigger{
+#popup.trigger {
     visibility: visible;
     /* display: block; */
     top: 12.5%;
     transform: translate(-50%, -50%) scale(1);
 }
 
-#popup h2{
+#popup h2 {
     /* border: solid cyan 2px; */
     position: relative;
-    color: rgb(170,211,223);
+    color: rgb(170, 211, 223);
     transform: translateY(-2.75em);
 }
 
-#popup img{
+#popup img {
     /* border: red solid 2px; */
     width: 5em;
     /* position: absolute;   */
