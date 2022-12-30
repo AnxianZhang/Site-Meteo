@@ -127,9 +127,17 @@ body {
 }
 
 .nav-bar .animation img{
+    background-color: #9c88ff;
+    border-radius: 50px;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 1em;
+    right: 1em;
+}
+
+.nav-bar .animation p{
+    width: 9em;
+    /* border: solid red 2px; */
+    text-transform: none;
 }
 
 #nav {
@@ -203,7 +211,7 @@ button#modify{
     /* background-color: #636363; */
     /*background-image change selon meteo*/
     /* background-image: url('https://cdn.kikinote.net/wp-content/uploads/2013/10/Google-Chrome%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD-%E4%B8%8B%E9%9B%A8%E8%81%B2%E9%9F%B3%E6%A8%82MP3.gif'); */
-    height: 10em;
+    height: 12em;
     right: 0;
 }
 

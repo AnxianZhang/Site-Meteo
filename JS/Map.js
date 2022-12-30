@@ -25,6 +25,29 @@ const getDefaultSites = () => {
     });
 };
 
+const showLocationName = (lat, lon) => {
+    let url = "http://api.openweathermap.org/geo/1.0/reverse";
+    let data = { 
+        appid: "279b4be6d54c8bf6ea9b12275a567156",
+        lat: lat,
+        lon: lon
+    };
+    $.ajax({
+        async: true,
+        contentType: "application/x-www-form-urlencoded",
+        type: "GET",
+        dataType: "json",
+        url: url,
+        data: data,
+        error: () =>{
+            alert("problem occured in ajax in Map.js at showLocationName function");
+        },
+        success: data =>{
+            document.querySelector(".animation p").innerHTML = document.querySelector(".animation p").innerHTML+ " à " + data[0].name;
+        }
+    });
+}
+
 const addSearchMeteo = e =>{
     map.addEventListener("click", function(e){
         let lon = e.latlng.lng, lat = e.latlng.lat;
@@ -32,8 +55,7 @@ const addSearchMeteo = e =>{
         document.querySelector("#add-new-site input[placeholder = lat]").value = lat;
 
         let url = "https://api.openweathermap.org/data/2.5/weather";
-        let data = { // une autre façon possible (data3)
-            // q: ville,
+        let data = {
             appid: "279b4be6d54c8bf6ea9b12275a567156",
             units: "metric",
             lat: lat,
@@ -51,7 +73,8 @@ const addSearchMeteo = e =>{
             },
             success: data =>{
                 document.querySelector(".animation img").src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
-                document.querySelector(".animation p").innerHTML = data.weather[0].description + "<br>" + data.main.temp + "°C";
+                document.querySelector(".animation p").innerHTML = data.weather[0].description + "<br><br>" + data.main.temp + "°C";
+                showLocationName(lat, lon);
             }
         });
     });

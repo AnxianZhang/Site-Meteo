@@ -27,6 +27,7 @@ const initLogOut = () =>{
         disconnectPopup("Déconnexion réussie"); // fonction du fichier Popup.js
         mapVisibility(); // fonction du fichier MenuUI.js
         // add a reset map
+        // ad rest Meteo
     });
 }
 
