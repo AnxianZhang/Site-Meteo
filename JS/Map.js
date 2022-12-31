@@ -1,11 +1,13 @@
 let mapProps;
 let map;
 let base;
+let currentUserIcons = [];
 
 window.deleteSitesUserSites = () => {
-    // delete all sites
-    // alert("ola");
-    //getDefaultSites();
+    currentUserIcons.forEach(marker =>{
+        map.removeLayer(marker);
+    });
+    currentUserIcons = [];
 }
 
 const getDefaultSites = () => {
@@ -27,7 +29,7 @@ const getDefaultSites = () => {
 
 const showLocationName = (lat, lon) => {
     let url = "http://api.openweathermap.org/geo/1.0/reverse";
-    let data = { 
+    let data = {
         appid: "279b4be6d54c8bf6ea9b12275a567156",
         lat: lat,
         lon: lon
@@ -39,17 +41,17 @@ const showLocationName = (lat, lon) => {
         dataType: "json",
         url: url,
         data: data,
-        error: () =>{
+        error: () => {
             alert("problem occured in ajax in Map.js at showLocationName function");
         },
-        success: data =>{
-            document.querySelector(".animation p").innerHTML = document.querySelector(".animation p").innerHTML+ " à " + data[0].name;
+        success: data => {
+            document.querySelector(".animation p").innerHTML = document.querySelector(".animation p").innerHTML + " à " + data[0].name;
         }
     });
 }
 
-const addSearchMeteo = e =>{
-    map.addEventListener("click", function(e){
+const addSearchMeteo = e => {
+    map.addEventListener("click", function (e) {
         let lon = e.latlng.lng, lat = e.latlng.lat;
         document.querySelector("#add-new-site input[placeholder = lon]").value = lon;
         document.querySelector("#add-new-site input[placeholder = lat]").value = lat;
@@ -68,10 +70,10 @@ const addSearchMeteo = e =>{
             dataType: "json",
             url: url,
             data: data,
-            error: () =>{
+            error: () => {
                 alert("problem occured in ajax in Map.js at addSearchMeteo function");
             },
-            success: data =>{
+            success: data => {
                 document.querySelector(".nav-bar .animation img").style.display = "block";
                 document.querySelector(".animation img").src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
                 let description = data.weather[0].description;
@@ -119,7 +121,7 @@ const startMap = data => {
 }
 
 window.updateMapWithNewSite = data => {
-    L.marker([data["latitude"], data["lontitude"]], { // add this to an array
+    currentUserIcons.push(L.marker([data["latitude"], data["lontitude"]], { // add this to an array
         title: data["nomS"],
         icon: L.icon({
             iconUrl: data["icon"],
@@ -137,7 +139,7 @@ window.updateMapWithNewSite = data => {
             "</center>")
         .on("click", e => {
             map.flyTo(e.latlng, 15);
-        });
+        }));
 }
 
 window.mapVisibility = () => {
@@ -151,10 +153,10 @@ window.mapVisibility = () => {
     document.querySelector(".animation").style.filter = isConneted ? "none" : "blur(10px)";
 }
 
-window.showCurrentUserSite = () =>{
-    const show = data =>{
+window.showCurrentUserSite = () => {
+    const show = data => {
         Array.from(data).forEach(siteInfo => {
-            L.marker([siteInfo['latitude'], siteInfo['lontitude']], { // add this to an array
+            currentUserIcons.push(L.marker([siteInfo['latitude'], siteInfo['lontitude']], { // add this to an array
                 title: siteInfo['nomS'],
                 icon: L.icon({
                     iconUrl: siteInfo['icon'],
@@ -172,8 +174,9 @@ window.showCurrentUserSite = () =>{
                     "</center>")
                 .on("click", e => {
                     map.flyTo(e.latlng, 15);
-                });
+                }));
         });
+        // alert(currentUserIcons.length); // validata
     }
 
     let url = "./PHP/getUserSite.php";
