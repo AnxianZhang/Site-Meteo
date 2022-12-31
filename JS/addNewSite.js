@@ -2,7 +2,6 @@ const initAddNewSite = () => {
     $("#add-new-site button").on("click", () => {
         let url = "./PHP/addNewSite.php";
         let dataa = {
-            mail: $("#userPersoDada p:eq(2) #text").val(),
             nomS: $("#nomAdd").val(),
             latitude: $("#latAdd").val(),
             lontitude: $("#lonAdd").val(),
@@ -10,6 +9,16 @@ const initAddNewSite = () => {
             img: $("#input-img").val(),
             detail: $("#detailsAdd").val()
         };
+
+        if(dataa["icon"] == ""){
+            dataa["icon"]="https://www.freeiconspng.com/thumbs/address-icon/addressing-information--mecca-911-3.png";
+        }
+        if(dataa["img"] == ""){
+            dataa["img"]="https://img.freepik.com/vecteurs-libre/paysage-montagne-design-plat-dessine-main_23-2149158786.jpg?w=2000";
+        }
+        if(dataa["detail"] == ""){
+            dataa["detail"]="votre adresse personalisé";
+        }
 
         $.ajax({
             // faire le lien avec addNewSite.php
@@ -26,8 +35,8 @@ const initAddNewSite = () => {
                 }
                 else {
                     alert("creation reussi");
+                    updateMapWithNewSite(dataa);
                 }
-                    updateSite(dataa);
                 // alert(data);
             },
             error: () => {

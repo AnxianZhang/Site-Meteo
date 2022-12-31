@@ -118,26 +118,26 @@ const startMap = data => {
     addSearchMeteo();
 }
 
-window.updateSite = data => {
-    L.marker([[data["latitude"]], [data["lontitude"]]], { // add this to an array
-        title: [data["nomS"]],
+window.updateMapWithNewSite = data => {
+    L.marker([data["latitude"], data["lontitude"]], { // add this to an array
+        title: data["nomS"],
         icon: L.icon({
-            iconUrl: [data["icon"]],
+            iconUrl: data["icon"],
             iconSize: [40, 40]
         })
-    }).addTo(map)
-        .bindPopup("<center>" +
-            "<h2>" + [data["nomS"]] + "</h2>" +
-            "</center>" +
-            "<center>" +
-            "<img width='100%' src='" + [data["img"]] + "' alt='img' />" +
-            "</center>" +
-            "<center>" +
-            "<p>" + [data["detail"]] + "</p>" +
-            "</center>")
-        .on("click", e => {
-            map.flyTo(e.latlng, 15);
-        });
+    }).addTo(map);
+        // .bindPopup("<center>" +
+        //     "<h2>" + data["nomS"] + "</h2>" +
+        //     "</center>" +
+        //     "<center>" +
+        //     "<img width='100%' src='" + data["img"] + "' alt='img' />" +
+        //     "</center>" +
+        //     "<center>" +
+        //     "<p>" + data["detail"] + "</p>" +
+        //     "</center>")
+        // .on("click", e => {
+        //     map.flyTo(e.latlng, 15);
+        // });
 }
 
 window.mapVisibility = () => {
