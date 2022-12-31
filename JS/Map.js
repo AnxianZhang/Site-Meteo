@@ -125,19 +125,19 @@ window.updateMapWithNewSite = data => {
             iconUrl: data["icon"],
             iconSize: [40, 40]
         })
-    }).addTo(map);
-        // .bindPopup("<center>" +
-        //     "<h2>" + data["nomS"] + "</h2>" +
-        //     "</center>" +
-        //     "<center>" +
-        //     "<img width='100%' src='" + data["img"] + "' alt='img' />" +
-        //     "</center>" +
-        //     "<center>" +
-        //     "<p>" + data["detail"] + "</p>" +
-        //     "</center>")
-        // .on("click", e => {
-        //     map.flyTo(e.latlng, 15);
-        // });
+    }).addTo(map)
+        .bindPopup("<center>" +
+            "<h2>" + data["nomS"] + "</h2>" +
+            "</center>" +
+            "<center>" +
+            "<img width='100%' src='" + data["img"] + "' alt='img' />" +
+            "</center>" +
+            "<center>" +
+            "<p>" + data["detail"] + "</p>" +
+            "</center>")
+        .on("click", e => {
+            map.flyTo(e.latlng, 15);
+        });
 }
 
 window.mapVisibility = () => {
