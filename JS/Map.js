@@ -2,6 +2,7 @@ let mapProps;
 let map;
 let base;
 let currentUserIcons = [];
+let iconId = [];
 
 window.deleteSitesUserSites = () => {
     currentUserIcons.forEach(marker =>{
@@ -85,6 +86,54 @@ const addSearchMeteo = e => {
     });
 }
 
+const deleteLieu = num =>{
+    let url = "./PHP/deleteIcon.php";
+    let data = {
+        num: num
+    };
+    $.ajax({
+        async: true,
+        contentType: "application/x-www-form-urlencoded",
+        type: "POST",
+        url: url,
+        data: data,
+        dataType: "text",
+        success: data => {
+            acceptPopup(data);
+        },
+        error: () => {
+            alert("Problem occured in ajax of deleteIcon in map.js");
+        }
+    });
+}
+
+function addEventToIcon(e){
+    // map.flyTo(e.latlng, 15);
+    Array.from(document.querySelectorAll(".nav-bar > .open")).forEach(element =>{
+        element.classList.remove("open");
+    });
+    if(!document.querySelector("#interact").classList.contains("open")){
+        document.querySelector("#interact").classList.add("open");
+    }
+
+    let interactDiv = document.querySelector("#interact >div");
+    interactDiv.innerHTML = "<button id='delet-icon'>Supprimer</button>";
+    interactDiv.innerHTML = interact.innerHTML + "<button id='zoom-icon'>Zoomer dessus</button>";
+    document.querySelector("#zoom-icon").addEventListener("click",()=>{
+        map.flyTo(e.latlng, 10);
+    });
+
+    document.querySelector("#delet-icon").addEventListener("click",()=>{
+        if (currentUserIcons.indexOf(this) == -1){
+            warwingPopup("Icon par défaut non supprimable!");
+        }
+        else{
+            deleteLieu(iconId[currentUserIcons.indexOf(this)]);
+            map.removeLayer(this);
+        }
+    });
+}
+
 const startMap = data => {
     mapProps = {
         center: [24.92629, 23.02734],
@@ -112,9 +161,7 @@ const startMap = data => {
                 "<center>" +
                 "<p>" + siteInfo['detail'] + "</p>" +
                 "</center>")
-            .on("click", e => {
-                map.flyTo(e.latlng, 15);
-            });
+            .on("click", addEventToIcon);
     });
 
     addSearchMeteo();
@@ -137,9 +184,8 @@ window.updateMapWithNewSite = data => {
             "<center>" +
             "<p>" + data["detail"] + "</p>" +
             "</center>")
-        .on("click", e => {
-            map.flyTo(e.latlng, 15);
-        }));
+        .on("click", addEventToIcon));
+    iconId.push(data["numS"]);
 }
 
 window.mapVisibility = () => {
@@ -172,9 +218,8 @@ window.showCurrentUserSite = () => {
                     "<center>" +
                     "<p>" + siteInfo['detail'] + "</p>" +
                     "</center>")
-                .on("click", e => {
-                    map.flyTo(e.latlng, 15);
-                }));
+                .on("click", addEventToIcon));
+            iconId.push(siteInfo["numS"]);
         });
         // alert(currentUserIcons.length); // validata
     }
