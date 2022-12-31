@@ -8,7 +8,7 @@
     $detail = isset($_POST['detail']) ? $_POST['detail'] : "nothing in detail";
 
     ////////pour AddSite
-    function AjoutNewSite($nomS, &$latitude, &$lontitude, &$icon, &$imag, &$detail){
+    function AjoutNewSite($nomS, $latitude, $lontitude, $icon, $img, $detail){
         require("connexionPDO.php");
         $sql = "INSERT INTO LIEUX 
                 VALUES (NULL, :nomS, :latitude, :lontitude, :icon, :img, :detail, :userId)";
