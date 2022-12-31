@@ -2,7 +2,9 @@
     display: none;
     position: absolute;
     border: 1px solid #bbbbbb;
-    background-color: white;
+    /* background-color: white; */
+    background-image: url("../img/welcome-bg2.jpg");
+    /* background-size: 10em; */
     z-index: 1002;
     overflow: auto;
     top: 20%;
@@ -11,18 +13,33 @@
     margin-left: -150px;
     text-align: center;
     padding-bottom: 4em;
+    border-radius: 1em;
+}
+
+.fenet input{
+    height: 2.5em;
+    border: 1px solid #bbbbbb;
+    width: 90%;
+}
+.fenet button:not(.closeBtn),
+.fenet input{
+    border-radius: 20px;
+}
+
+.fenet button{
+    cursor: pointer;
+}
+
+.fenet button:not(.closeBtn){
+    height: 1.5em;
+    width: 10em;
+    background-color: white;
+    border-color: transparent;
+    /* background-color: #9c88ff; */
 }
 
 .form_submit {
     padding: 1em 0 0 0;
-
-}
-
-.form_submit input,
-.form_submit button {
-    border-radius: 20px;
-    border: 1px solid #bbbbbb;
-    width: 90%;
 }
 
 .form-id {
