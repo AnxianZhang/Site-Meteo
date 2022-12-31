@@ -3,12 +3,15 @@ let map;
 let base;
 let currentUserIcons = [];
 let iconId = [];
+let nbLieux;
 
 window.deleteSitesUserSites = () => {
     currentUserIcons.forEach(marker =>{
         map.removeLayer(marker);
     });
     currentUserIcons = [];
+    iconId = [];
+    sessionStorage.setItem("nbSites", 0);
 }
 
 const getDefaultSites = () => {
@@ -53,6 +56,9 @@ const showLocationName = (lat, lon) => {
 
 const addSearchMeteo = e => {
     map.addEventListener("click", function (e) {
+        Array.from(document.querySelectorAll(".nav-bar > .open")).forEach(element =>{
+            element.classList.remove("open");
+        });
         let lon = e.latlng.lng, lat = e.latlng.lat;
         document.querySelector("#add-new-site input[placeholder = lon]").value = lon;
         document.querySelector("#add-new-site input[placeholder = lat]").value = lat;
@@ -105,6 +111,10 @@ const deleteLieu = num =>{
             alert("Problem occured in ajax of deleteIcon in map.js");
         }
     });
+
+    let nb = parseInt(sessionStorage.getItem("nbSites")) - 1;
+    sessionStorage.setItem("nbSites" , nb);
+    nbLieux = document.querySelector("#nb-lieux").innerHTML = "<p id ='nb-lieux'><b>Nombre de lieux : </b>" + sessionStorage.getItem("nbSites") + "</p>";
 }
 
 function addEventToIcon(e){
@@ -116,9 +126,9 @@ function addEventToIcon(e){
         document.querySelector("#interact").classList.add("open");
     }
 
-    let interactDiv = document.querySelector("#interact >div");
+    let interactDiv = document.querySelector("#interact div");
     interactDiv.innerHTML = "<button id='delet-icon'>Supprimer</button>";
-    interactDiv.innerHTML = interact.innerHTML + "<button id='zoom-icon'>Zoomer dessus</button>";
+    interactDiv.innerHTML = interactDiv.innerHTML + "<button id='zoom-icon'>Zoomer dessus</button>";
     document.querySelector("#zoom-icon").addEventListener("click",()=>{
         map.flyTo(e.latlng, 10);
     });
@@ -129,6 +139,7 @@ function addEventToIcon(e){
         }
         else{
             deleteLieu(iconId[currentUserIcons.indexOf(this)]);
+            interactDiv.innerHTML = "Cliquez sur une nouvelle icon pour pourvoir interagir avec !"
             map.removeLayer(this);
         }
     });
@@ -186,6 +197,9 @@ window.updateMapWithNewSite = data => {
             "</center>")
         .on("click", addEventToIcon));
     iconId.push(data["numS"]);
+    let nb = parseInt(sessionStorage.getItem("nbSites")) + 1;
+    sessionStorage.setItem("nbSites" , nb);
+    nbLieux = document.querySelector("#nb-lieux").innerHTML = "<p id ='nb-lieux'><b>Nombre de lieux : </b>" + sessionStorage.getItem("nbSites") + "</p>";
 }
 
 window.mapVisibility = () => {
@@ -201,6 +215,7 @@ window.mapVisibility = () => {
 
 window.showCurrentUserSite = () => {
     const show = data => {
+        let count = 0;
         Array.from(data).forEach(siteInfo => {
             currentUserIcons.push(L.marker([siteInfo['latitude'], siteInfo['lontitude']], { // add this to an array
                 title: siteInfo['nomS'],
@@ -220,8 +235,10 @@ window.showCurrentUserSite = () => {
                     "</center>")
                 .on("click", addEventToIcon));
             iconId.push(siteInfo["numS"]);
+            ++count;
         });
-        // alert(currentUserIcons.length); // validata
+        sessionStorage.setItem("nbSites", count);
+        // nbLieux = document.querySelector("#nb-lieux").innerHTML = "<p id ='nb-lieux'><b>Nombre de lieux : </b>" + count + "</p>";
     }
 
     let url = "./PHP/getUserSite.php";
