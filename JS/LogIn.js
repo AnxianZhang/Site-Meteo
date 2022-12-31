@@ -105,7 +105,7 @@ $(document).ready(() => {
                             userData.html(userData.html() + "<p id='pFName'><b>Nom: </b> " + data["nomU"] + "</p>");
                             userData.html(userData.html() + "<p id='pLName'><b>Prenom: </b>" + data["prenomU"] + "</p>");
                             userData.html(userData.html() + "<p><b>Email: </b>" + data["mail"] + "</p>");
-                            userData.html(userData.html() + "<p><b>Nombre de lieux : </b>" + "RIEN" + "</p>");
+                            userData.html(userData.html() + "<p id ='nb-lieux'><b>Nombre de lieux : </b>" + sessionStorage.getItem("nbSites") + "</p>");
                             userData.html(userData.html() + "<button id='modify'>Modifier</button>");
                             addClickToModifidyButton(); // dans le fichier ModifData
 
