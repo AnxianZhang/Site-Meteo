@@ -37,7 +37,7 @@
     /* background-color: white; */
     /* border-color: transparent; */
     /* background-color: #9c88ff; */
-    background:white -webkit-linear-gradient(bottom, #e8f0fe, #e8f0fe) no-repeat center bottom;
+    background:white -webkit-linear-gradient(top, #e8f0fe, #e8f0fe) no-repeat 0 0;
 	background-size:100% 0;
 }
 @keyframes scan {
@@ -50,7 +50,7 @@
 }
 .fenet button:not(.closeBtn):hover {
 	background-size:100% 100%;
-	animation: scan 1s ease;
+	animation: scan 0.5s ease;
 }
 
 .form_submit {
