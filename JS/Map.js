@@ -151,6 +151,46 @@ window.mapVisibility = () => {
     document.querySelector(".animation").style.filter = isConneted ? "none" : "blur(10px)";
 }
 
+window.showCurrentUserSite = () =>{
+    const show = data =>{
+        Array.from(data).forEach(siteInfo => {
+            L.marker([siteInfo['latitude'], siteInfo['lontitude']], { // add this to an array
+                title: siteInfo['nomS'],
+                icon: L.icon({
+                    iconUrl: siteInfo['icon'],
+                    iconSize: [40, 40]
+                })
+            }).addTo(map)
+                .bindPopup("<center>" +
+                    "<h2>" + siteInfo['nomS'] + "</h2>" +
+                    "</center>" +
+                    "<center>" +
+                    "<img width='100%' src='" + siteInfo['img'] + "' alt='img' />" +
+                    "</center>" +
+                    "<center>" +
+                    "<p>" + siteInfo['detail'] + "</p>" +
+                    "</center>")
+                .on("click", e => {
+                    map.flyTo(e.latlng, 15);
+                });
+        });
+    }
+
+    let url = "./PHP/getUserSite.php";
+    $.ajax({
+        async: true,
+        contentType: "application/x-www-form-urlencoded",
+        type: "POST",
+        url: url,
+        dataType: "json",
+        success: data => {
+            show(data);
+        },
+        error: () => {
+            alert("Problem occured in ajax of Map.js");
+        }
+    });
+}
 
 
 const initMap = () => {

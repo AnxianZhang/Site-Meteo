@@ -91,6 +91,7 @@ $(document).ready(() => {
                     $("#connect input").val("");
                     acceptPopup(data); // fonction du fichier Popup.js
                     mapVisibility(); // fonction du fichier Map.js
+                    showCurrentUserSite();
 
                     $.ajax({
                         async: true,
