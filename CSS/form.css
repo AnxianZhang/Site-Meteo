@@ -33,9 +33,24 @@
 .fenet button:not(.closeBtn){
     height: 1.5em;
     width: 10em;
-    background-color: white;
-    border-color: transparent;
+    border: none;
+    /* background-color: white; */
+    /* border-color: transparent; */
     /* background-color: #9c88ff; */
+    background:white -webkit-linear-gradient(bottom, #e8f0fe, #e8f0fe) no-repeat center bottom;
+	background-size:100% 0;
+}
+@keyframes scan {
+	0% {
+		background-size:100% 0;
+	}
+	100% {
+		background-size:100% 100%;
+	}
+}
+.fenet button:not(.closeBtn):hover {
+	background-size:100% 100%;
+	animation: scan 1s ease;
 }
 
 .form_submit {
