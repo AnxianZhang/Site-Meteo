@@ -97,17 +97,6 @@ input:invalid {
     }
 }
 
-@media screen and (max-width: 630px) {
-    #add-new-site * {
-        width: 10em;
-    }
-
-    #add-new-site input[placeholder="lon"],
-    #add-new-site input[placeholder="lat"] {
-        width: 4.5em;
-    }
-}
-
 /*========== button liked witch forms ==========*/
 
 #log {

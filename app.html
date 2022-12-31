@@ -25,7 +25,7 @@
   <script src="./JS/LogOut.js"></script>
   <script src="./JS/Popup.js"></script>
   <script src="./JS/AddNewSite.js"></script>
-  <script src="./JS/ModifData.js"></script>
+  <script src="./JS/ChangePwd.js"></script>
 </head>
 
 <body>
@@ -83,6 +83,17 @@
       </form>
       <button id = "changePwdBtn">Changer le mot de pass</button>
     </div>
+
+    <div id="modif-pwd" class="fenet">
+      <button class="closeBtn">✕</button><br>
+      <div class = "form-id" >Changer de mot de passe</div>
+      <form class="form_submit"><br><br>
+        <input required name="old-pwd" value="" type="password" placeholder="Ancien mot de passe"/>
+        <input required name="new-pwd" value="" type="password" placeholder="Nouveau mot de passe"/><br><br>
+        <button id="valid-new-pwd" type="submit">Modifier</button>
+      </form>
+    </div>
+
     <!-- <p id="phpmsg">php debugo</p> -->
     <div id = "popup">
       <img src="" alt="">
