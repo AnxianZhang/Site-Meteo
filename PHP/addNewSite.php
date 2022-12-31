@@ -12,15 +12,6 @@
         require("connexionPDO.php");
         $sql = "INSERT INTO LIEUX 
                 VALUES (NULL, :nomS, :latitude, :lontitude, :icon, :img, :detail, :userId)";
-        if($icon == ""){
-            $icon="https://www.freeiconspng.com/thumbs/address-icon/addressing-information--mecca-911-3.png";
-        }
-        if($img == ""){
-            $img="https://img.freepik.com/vecteurs-libre/paysage-montagne-design-plat-dessine-main_23-2149158786.jpg?w=2000";
-        }
-        if($detail == ""){
-            $detail="votre adresse personalisé";
-        }
         try{
             $commande = $pdo->prepare($sql);
             $commande->bindParam(':nomS', $nomS);
