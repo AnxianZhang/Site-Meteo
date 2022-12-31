@@ -1,7 +1,7 @@
-const initAddNewSite = () =>{
-    $("#add-new-site button").on("click", ()=>{
+const initAddNewSite = () => {
+    $("#add-new-site button").on("click", () => {
         let url = "./PHP/addNewSite.php";
-        let data = {
+        let dataa = {
             mail: $("#userPersoDada p:eq(2) #text").val(),
             nomS: $("#nomAdd").val(),
             latitude: $("#latAdd").val(),
@@ -19,12 +19,15 @@ const initAddNewSite = () =>{
             type: "POST",
             url: url,
             dataType: "text",
-            data: data,
+            data: dataa,
             success: data => {
-                if(data == "les champs: nom, lat, lon sont obligatoires"){
+                if (data == "les champs: nom, lat, lon sont obligatoires") {
                     alert("raté car les champs: nom, lat, lon sont obligatoires");
                 }
-                else alert("creation reussi");
+                else {
+                    alert("creation reussi");
+                }
+                    updateSite(dataa);
                 // alert(data);
             },
             error: () => {
