@@ -31,10 +31,10 @@
         
     }//////////// si c vide 
     if ($nomS == "" || $latitude == "" || $lontitude == ""){
-        echo "les champs: nom, lat, lon sont obligatoires";
+        echo false;
     }
     else {
-        AjoutNewSite($nomS, $latitude, $lontitude, $icon, $imag, $detail);
-        echo "c fait";
+        AjoutNewSite($nomS, $latitude, $lontitude, $icon, $img, $detail);
+        echo true;
     }
 ?>
