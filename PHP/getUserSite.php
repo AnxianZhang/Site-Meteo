@@ -1,12 +1,13 @@
 <?php
     require("connexionPDO.php");
+    session_start();
     $sql = "SELECT *
             FROM lieux
-            WHERE userId=:defaultSite;";
+            WHERE userId=:currUser;";
     try{
         $commande = $pdo->prepare($sql);
-        $defaultSiteId = 0;
-        $commande->bindParam(":defaultSite", $defaultSiteId);
+
+        $commande->bindParam(":currUser", $_SESSION["userData"]["numU"]);
         if ($commande->execute()){
             $result = $commande->fetchAll(PDO::FETCH_ASSOC);
             // var_dump($result);
