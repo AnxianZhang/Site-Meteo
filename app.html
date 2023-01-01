@@ -8,6 +8,8 @@
   <title>Leaflet.js AJAX Node.js</title>
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -18,14 +20,15 @@
   <link rel="stylesheet" href="./CSS/style.css">
   <link rel="stylesheet" href="./CSS/form.css">
 
+  <script src="./JS/LogIn.js"></script>
   <script src="./JS/Map.js"></script>
   <script src="./JS/MenuUi.js"></script>
   <script src="./JS/LogUp.js"></script>
-  <script src="./JS/LogIn.js"></script>
   <script src="./JS/LogOut.js"></script>
   <script src="./JS/Popup.js"></script>
   <script src="./JS/AddNewSite.js"></script>
   <script src="./JS/ChangePwd.js"></script>
+  <!-- <script src="./JS/countryDataList.js"></script> -->
 </head>
 
 <body>
@@ -99,6 +102,14 @@
       <img src="" alt="">
       <h2>Connexion réussis</h2>  
     </div>
+
+    <form class="form_submit" id = "seach-city">
+      <input name="seach-city" type="text" placeholder="Recherche de ville" list="cities" autocomplete="off">
+      <datalist id="cities">
+      </datalist>
+      <button><img src="./img/search.png" alt="search"></button>
+    </form>
+    
     <div id="map"></div>
     <div id="connect" class="fenet">
       <button class="closeBtn">✕</button><br>
