@@ -16,41 +16,45 @@
     border-radius: 1em;
 }
 
-.fenet input{
+.fenet input {
     height: 2.5em;
     border: 1px solid #bbbbbb;
     width: 90%;
 }
+
 .fenet button:not(.closeBtn),
-.fenet input{
+.fenet input {
     border-radius: 20px;
 }
 
-.fenet button{
+.fenet button {
     cursor: pointer;
 }
 
-.fenet button:not(.closeBtn){
+.fenet button:not(.closeBtn) {
     height: 1.5em;
     width: 10em;
     border: none;
     /* background-color: white; */
     /* border-color: transparent; */
     /* background-color: #9c88ff; */
-    background:white -webkit-linear-gradient(top, #e8f0fe, #e8f0fe) no-repeat 0 0;
-	background-size:100% 0;
+    background: white -webkit-linear-gradient(top, #e8f0fe, #e8f0fe) no-repeat 0 0;
+    background-size: 100% 0;
 }
+
 @keyframes scan {
-	0% {
-		background-size:100% 0;
-	}
-	100% {
-		background-size:100% 100%;
-	}
+    0% {
+        background-size: 100% 0;
+    }
+
+    100% {
+        background-size: 100% 100%;
+    }
 }
+
 .fenet button:not(.closeBtn):hover {
-	background-size:100% 100%;
-	animation: scan 0.5s ease;
+    background-size: 100% 100%;
+    animation: scan 0.5s ease;
 }
 
 .form_submit {
@@ -91,6 +95,80 @@ input:invalid {
     width: 80%;
     height: 100%;
 } */
+
+#modify,#delet-icon,#zoom-icon,#ajt {
+    background: #a3dcc2;
+    border: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+#modify::before,#delet-icon::before,#zoom-icon::before,#ajt::before {
+    background: rgba(200, 200, 200, .8);
+    border-radius: .25em;
+    bottom: -.1em;
+    content: "";
+    left: .1em;
+    position: absolute;
+    right: .1em;
+    top: .5em;
+    z-index: -1;
+}
+
+#modify::after,#delet-icon::after,#zoom-icon::after,#ajt::after {
+    background: #a3dcc2;
+    border-radius: .25em;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#modify:hover,#delet-icon:hover,#zoom-icon:hover,#ajt:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+#modify:hover::before,#delet-icon:hover::before,#zoom-icon:hover::before,#ajt:hover::before {
+    transform: translateY(.1em);
+}
+
+#modify:hover::after,#delet-icon:hover::after,#zoom-icon:hover::after,#ajt:hover::after {
+    background: #53dfa2;
+}
+
+#modify:active,#delet-icon:active,#zoom-icon:active,#ajt:active {
+    transform: translateY(.2em);
+
+    transition: none;
+}
+
+#modify:active::before,#delet-icon:active::before,#zoom-icon:active::before,#ajt:active::before {
+    transform: translateY(-.1em);
+    transition: none;
+}
+
+#modify,
+#modify::before,
+#modify::after,
+#delet-icon,
+#delet-icon::before,
+#delet-icon::after,
+#zoom-icon,
+#zoom-icon::before,
+#zoom-icon::after,
+#ajt,
+#ajt::before,
+#ajt::after {
+    transition: all .5s cubic-bezier(0, 1, .3, 1);
+}
+
+button[id$="-icon"]{
+    display: block;
+    margin-top: 2.5em;
+}
 
 #add-new-site textarea {
     resize: none;
