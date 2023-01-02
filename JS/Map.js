@@ -37,6 +37,12 @@ const searchCountry = () => {
     });
 }
 
+const maxDezoom = () =>{
+    document.querySelector("#interact-out-side button").addEventListener("click", () =>{
+        map.flyTo([24.92629, 23.02734], 3);
+    });
+}
+
 window.deleteSitesUserSites = () => {
     currentUserIcons.forEach(marker => {
         map.removeLayer(marker);
@@ -255,7 +261,7 @@ window.mapVisibility = () => {
     map.style.zIndex = isConneted ? 2 : -10;
 
     document.querySelector(".animation").style.filter = isConneted ? "none" : "blur(10px)";
-    document.querySelector("form#seach-city").style.zIndex = isConneted ? 3 : -10;
+    document.querySelector("#interact-out-side").style.zIndex = isConneted ? 3 : -10;
 }
 
 window.showCurrentUserSite = () => {
@@ -308,6 +314,7 @@ const initMap = () => {
     getDefaultSites();
     mapVisibility();
     searchCountry();
+    maxDezoom();
 }
 
 window.addEventListener("DOMContentLoaded", initMap);

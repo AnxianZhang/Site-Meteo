@@ -54,7 +54,7 @@
           <div id ="userPersoDada"></div>
         </li>
         <li class="nav_menu" id = "interact"><a>Interacation avec icons</a>
-          <div>Cliquez sur une icon pour pourvoir interagir avec !</div>
+          <div>Cliquez sur une icon !</div>
         </li>
         <li class="nav_menu"><a>Ajoutez un lieux</a>
           <div id="add-new-site">
@@ -103,12 +103,15 @@
       <h2>Connexion réussis</h2>  
     </div>
 
-    <form class="form_submit" id = "seach-city">
-      <input name="seach-city" type="text" placeholder="Recherche de ville" list="cities" autocomplete="off">
-      <datalist id="cities">
-      </datalist>
-      <button><img src="./img/search.png" alt="search"></button>
-    </form>
+    <div id="interact-out-side">
+      <button title="Revnenir au zoom initial"><img src="./img/up-arrow-angle.png" alt="dézoumer"></button>
+      <form class="form_submit" id = "seach-city">
+        <input name="seach-city" type="text" placeholder="Recherche de ville" list="cities" autocomplete="off">
+        <datalist id="cities">
+        </datalist>
+        <button><img src="./img/search.png" alt="search"></button>
+      </form>
+    </div>
     
     <div id="map"></div>
     <div id="connect" class="fenet">
@@ -117,8 +120,8 @@
       <form class="form_submit"><br><br>
         <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="userNamee" type="text" placeholder="Adresse e-mail" /><br><br>
         <input required id="passwordd" type="password" placeholder="Mot de passe" /><br><br>
-        <button id="logInn" type="submit">Se connecter</button>
-        <p><a>Mot de passe oublié ?</a></p>
+        <button id="logInn" type="submit">Se connecter</button> <br><br>
+        <!-- <p><a>Mot de passe oublié ?</a></p> -->
       </form>
       <button id = "log-up">Nouveau compte</button>
     </div>
