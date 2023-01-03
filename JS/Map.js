@@ -50,7 +50,6 @@ window.deleteSitesUserSites = () => {
     currentUserIcons = [];
     iconId = [];
     nbLieux = 0;
-    // sessionStorage.setItem("nbSites", 0);
 }
 
 window.getNbLieux = () => {
@@ -160,14 +159,11 @@ const deleteLieu = num => {
         }
     });
 
-    // let nb = parseInt(sessionStorage.getItem("nbSites")) - 1;
-    // sessionStorage.setItem("nbSites" , nb);
     nbLieux = nbLieux - 1;
     document.querySelector("#nb-lieux").innerHTML = "<p id ='nb-lieux'><b>Nombre de lieux : </b>" + nbLieux + "</p>";
 }
 
 function addEventToIcon(e) {
-    // map.flyTo(e.latlng, 15);
     Array.from(document.querySelectorAll(".nav-bar > .open")).forEach(element => {
         element.classList.remove("open");
     });
@@ -205,7 +201,7 @@ const startMap = data => {
     base = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
     Array.from(data).forEach(siteInfo => {
-        L.marker([siteInfo['latitude'], siteInfo['lontitude']], { // add this to an array
+        L.marker([siteInfo['latitude'], siteInfo['lontitude']], {
             title: siteInfo['nomS'],
             icon: L.icon({
                 iconUrl: siteInfo['icon'],
@@ -228,7 +224,7 @@ const startMap = data => {
 }
 
 window.updateMapWithNewSite = data => {
-    currentUserIcons.push(L.marker([data["latitude"], data["lontitude"]], { // add this to an array
+    currentUserIcons.push(L.marker([data["latitude"], data["lontitude"]], {
         title: data["nomS"],
         icon: L.icon({
             iconUrl: data["icon"],
@@ -246,8 +242,6 @@ window.updateMapWithNewSite = data => {
             "</center>")
         .on("click", addEventToIcon));
     iconId.push(data["numS"]);
-    // let nb = parseInt(sessionStorage.getItem("nbSites")) + 1;
-    // sessionStorage.setItem("nbSites" , nb);
     nbLieux = nbLieux + 1;
     document.querySelector("#nb-lieux").innerHTML = "<p id ='nb-lieux'><b>Nombre de lieux : </b>" + nbLieux + "</p>";
 }
@@ -266,9 +260,8 @@ window.mapVisibility = () => {
 
 window.showCurrentUserSite = () => {
     const show = data => {
-        // let count = 0;
         Array.from(data).forEach(siteInfo => {
-            currentUserIcons.push(L.marker([siteInfo['latitude'], siteInfo['lontitude']], { // add this to an array
+            currentUserIcons.push(L.marker([siteInfo['latitude'], siteInfo['lontitude']], {
                 title: siteInfo['nomS'],
                 icon: L.icon({
                     iconUrl: siteInfo['icon'],
@@ -288,9 +281,6 @@ window.showCurrentUserSite = () => {
             iconId.push(siteInfo["numS"]);
             ++nbLieux;
         });
-        // sessionStorage.setItem("nbSites", count);
-        // alert(sessionStorage.getItem("nbSites")+ " map");
-        // nbLieux = document.querySelector("#nb-lieux").innerHTML = "<p id ='nb-lieux'><b>Nombre de lieux : </b>" + nbLieux + "</p>";
     }
 
     let url = "./PHP/getUserSite.php";

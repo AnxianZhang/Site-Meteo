@@ -8,8 +8,8 @@
             WHERE numS = :lieuToDelete;";
     try{
         $commande = $pdo->prepare($sql);
-        $commande->bindParam(":lieuToDelete", $numLieu);            $commande->execute();
-
+        $commande->bindParam(":lieuToDelete", $numLieu);            
+        $commande->execute();
     }
     catch(PDOException $e){
         echo utf8_encode("Echec de la requete SQL dans getDefaultData" . $e->getMessage() . "\n");

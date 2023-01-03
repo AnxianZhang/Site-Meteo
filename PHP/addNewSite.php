@@ -7,7 +7,6 @@
     $img = isset($_POST['img']) ? $_POST['img'] : "nothing in img";
     $detail = isset($_POST['detail']) ? $_POST['detail'] : "nothing in detail";
 
-    ////////pour AddSite
     function AjoutNewSite($nomS, $latitude, $lontitude, $icon, $img, $detail){
         require("connexionPDO.php");
         $sql = "INSERT INTO LIEUX 
@@ -21,15 +20,14 @@
             $commande->bindParam(':img', $img);
             $commande->bindParam(':detail', $detail);
             $commande->bindParam(':userId', $_SESSION["userData"]["numU"]);
-            ///////jsp comment donner val de userId
             $commande->execute();
         } 
         catch(PDOException $e){
             echo utf8_encode("Echec de la requete SQL dans addNewSite" . $e->getMessage() . "\n");
             die();
         }
-        
-    }//////////// si c vide 
+    }
+    
     if ($nomS == "" || $latitude == "" || $lontitude == ""){
         echo false;
     }

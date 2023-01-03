@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaflet.js AJAX Node.js</title>
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
@@ -14,8 +15,6 @@
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-  <!-- <link rel="stylesheet" href="./leaflet/leaflet.css" />
-  <script src="./leaflet/leaflet.js"></script> -->
 
   <link rel="stylesheet" href="./CSS/style.css">
   <link rel="stylesheet" href="./CSS/form.css">
@@ -28,7 +27,6 @@
   <script src="./JS/Popup.js"></script>
   <script src="./JS/AddNewSite.js"></script>
   <script src="./JS/ChangePwd.js"></script>
-  <!-- <script src="./JS/countryDataList.js"></script> -->
 </head>
 
 <body>
@@ -46,99 +44,99 @@
               <br>
               <p>Cliquez à un endroit sur la map pour obtenir la méteo</p>
               <img src="" alt="">
-              <!-- <p> [lat,lon]</p> -->
             </div>
           </div>
         </li>
-        <li class="nav_menu" id = "user-data"><a>Vos Donnees</a>
-          <div id ="userPersoDada"></div>
+        <li class="nav_menu" id="user-data"><a>Vos Donnees</a>
+          <div id="userPersoDada"></div>
         </li>
-        <li class="nav_menu" id = "interact"><a>Interacation avec icons</a>
+        <li class="nav_menu" id="interact"><a>Interacation avec icons</a>
           <div>Cliquez sur une icon !</div>
         </li>
         <li class="nav_menu"><a>Ajoutez un lieux</a>
           <div id="add-new-site">
-            <input id="lonAdd" required type="text" disabled="true" placeholder="lon" title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées">
-            <input id="latAdd" required type="text" disabled="true" placeholder="lat" title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées"><br>
+            <input id="lonAdd" required type="text" disabled="true" placeholder="lon"
+              title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées">
+            <input id="latAdd" required type="text" disabled="true" placeholder="lat"
+              title="Cliquez à un endroit sur carte, pour entregistrer les coordonnées"><br>
             <input id="nomAdd" required type="text" placeholder="nom"><br>
-            <!-- <label for="icon">Choisisez une icon</label><br> -->
             <input name="icon" type="text" id="input-icon" placeholder="Ajout d'une icon (URL)"><br>
-            <!-- <label for="img">Choisisez une image</label><br> -->
             <input name="img" type="text" id="input-img" placeholder="Ajout d'une image (URL)"><br>
             <textarea id="detailsAdd" cols="0" rows="5" placeholder="Ajoutez des détails au lieux"></textarea> <br>
             <button id="ajt">Ajouter</button>
           </div>
         </li>
-        <div id = "log">
-          <button id = "log-in">Connexion</button>
-          <button id = "log-out" disabled="true">Déconnexion</button>
+        <div id="log">
+          <button id="log-in">Connexion</button>
+          <button id="log-out" disabled="true">Déconnexion</button>
         </div>
       </ul>
     </div>
 
     <div id="modif" class="fenet">
       <button class="closeBtn">✕</button><br>
-      <div class = "form-id" >Modification des données</div>
+      <div class="form-id">Modification des données</div>
       <form class="form_submit"><br><br>
-        <input required pattern="[A-Za-z]*" name="nv-nom" value="" class="linedeux" type="text" placeholder="Nouveau nom de famille" style="width: 43%;"/>
-        <input required pattern="[A-Za-z]*" name="nv-prenom" value="" class="linedeux" type="text" placeholder="Nouveau prénom" style="width: 43%;"/><br><br>
+        <input required pattern="[A-Za-z]*" name="nv-nom" value="" class="linedeux" type="text"
+          placeholder="Nouveau nom de famille" style="width: 43%;" />
+        <input required pattern="[A-Za-z]*" name="nv-prenom" value="" class="linedeux" type="text"
+          placeholder="Nouveau prénom" style="width: 43%;" /><br><br>
         <button id="validModif" type="submit">Modifier</button>
       </form><br>
-      <button id = "changePwdBtn">Changer le mot de pass</button>
+      <button id="changePwdBtn">Changer le mot de pass</button>
     </div>
 
     <div id="modif-pwd" class="fenet">
       <button class="closeBtn">✕</button><br>
-      <div class = "form-id" >Changer de mot de passe</div>
+      <div class="form-id">Changer de mot de passe</div>
       <form class="form_submit"><br><br>
-        <input required name="old-pwd" value="" type="password" placeholder="Ancien mot de passe"/>
-        <input required name="new-pwd" value="" type="password" placeholder="Nouveau mot de passe"/><br><br>
+        <input required name="old-pwd" value="" type="password" placeholder="Ancien mot de passe" />
+        <input required name="new-pwd" value="" type="password" placeholder="Nouveau mot de passe" /><br><br>
         <button id="valid-new-pwd" type="submit">Modifier</button>
       </form>
     </div>
 
-    <!-- <p id="phpmsg">php debugo</p> -->
-    <div id = "popup">
+    <div id="popup">
       <img src="" alt="">
-      <h2>Connexion réussis</h2>  
+      <h2>Connexion réussis</h2>
     </div>
 
     <div id="interact-out-side">
       <button title="Revnenir au zoom initial"><img src="./img/up-arrow-angle.png" alt="dézoumer"></button>
-      <form class="form_submit" id = "seach-city">
+      <form class="form_submit" id="seach-city">
         <input name="seach-city" type="text" placeholder="Recherche de ville" list="cities" autocomplete="off">
-        <datalist id="cities">
-        </datalist>
         <button><img src="./img/search.png" alt="search"></button>
       </form>
     </div>
-    
+
     <div id="map"></div>
     <div id="connect" class="fenet">
       <button class="closeBtn">✕</button><br>
-      <div class = "form-id" >Connexion</div>
+      <div class="form-id">Connexion</div>
       <form class="form_submit"><br><br>
-        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="userNamee" type="text" placeholder="Adresse e-mail" /><br><br>
+        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="userNamee" type="text"
+          placeholder="Adresse e-mail" /><br><br>
         <input required id="passwordd" type="password" placeholder="Mot de passe" /><br><br>
         <button id="logInn" type="submit">Se connecter</button> <br><br>
-        <!-- <p><a>Mot de passe oublié ?</a></p> -->
       </form>
-      <button id = "log-up">Nouveau compte</button>
+      <button id="log-up">Nouveau compte</button>
     </div>
 
     <div id="inscrip" class="fenet">
       <button class="closeBtn">✕</button>
-      <div class = "form-id">Inscription</div>
+      <div class="form-id">Inscription</div>
       <form class="form_submit"><br><br>
-        <input required pattern="[A-Za-z]*" name="prenom" value="" class="linedeux" type="text" placeholder="Prénom" style="width: 43%;"/>
-        <input required pattern="[A-Za-z]*" name="nom" value="" class="linedeux" type="text" placeholder="Nom de famille" style="width: 43%;"/><br><br>
-        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="mail" value="" type="text" placeholder="Adresse e-mail" /><br><br>
-        <input required  name="confMail" value="" type="text" placeholder="Confirmer adresse e-mail" /><br><br>
+        <input required pattern="[A-Za-z]*" name="prenom" value="" class="linedeux" type="text" placeholder="Prénom"
+          style="width: 43%;" />
+        <input required pattern="[A-Za-z]*" name="nom" value="" class="linedeux" type="text"
+          placeholder="Nom de famille" style="width: 43%;" /><br><br>
+        <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="mail" value="" type="text"
+          placeholder="Adresse e-mail" /><br><br>
+        <input required name="confMail" value="" type="text" placeholder="Confirmer adresse e-mail" /><br><br>
         <input required name="mdp" value="" type="password" placeholder="Mot de passe" /><br><br>
         <input required name="confMdp" value="" type="password" placeholder="Confirmer mot de passe" /><br><br>
         <p>En cliquant sur S'inscrire, vous acceptez nos <a>Conditions générales</a></p>
-        <button type="submit" >S'inscrire</button>
-        <!-- <div style="width: 100px; height: 50px; cursor: pointer; background-color: green;" id="sign-up">S'inscrire</div> -->
+        <button type="submit">S'inscrire</button>
       </form>
     </div>
   </div>

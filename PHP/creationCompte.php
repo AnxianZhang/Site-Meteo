@@ -15,9 +15,6 @@
             if ($commande->execute()){
                 $result = $commande->fetchAll(PDO::FETCH_ASSOC);
                 return count($result) != 0;
-                // echo json_encode($result);
-                // var_dump($result);
-                // die();
             }
         } catch(PDOException $e){
             echo utf8_encode("Echec de la requete SQL dans creationCompte" . $e->getMessage() . "\n");

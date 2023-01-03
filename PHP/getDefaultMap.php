@@ -9,8 +9,6 @@
         $commande->bindParam(":defaultSite", $defaultSiteId);
         if ($commande->execute()){
             $result = $commande->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($result);
-            // die();
         }
     }
     catch(PDOException $e){

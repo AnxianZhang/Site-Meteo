@@ -77,9 +77,7 @@ const creatAcount = () => {
 
 const verifData = () => {
     let mail = userData["mail"].value;
-    // console.log(typeof(mail));
     if (!hasFieldNull(logUpInputs)) {
-        // console.log(mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g")) ? "oui" : "non");
         if (!mail.match(new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$", "g"))) {
             warwingPopup("Format incorrecte du mail"); // fonction du fichier Popup.js
             return;

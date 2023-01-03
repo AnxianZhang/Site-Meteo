@@ -46,7 +46,6 @@ $(document).ready(() => {
                 dataType: "text",
                 data: data,
                 success: data => {
-                    // alert(data);
                     acceptPopup(data);
                     updateUserData(nvNom.val(), nvPrenom.val());
                     $("#modif input").val("");
@@ -92,7 +91,6 @@ $(document).ready(() => {
                     acceptPopup(data); // fonction du fichier Popup.js
                     mapVisibility(); // fonction du fichier Map.js
                     showCurrentUserSite();
-                    // alert(getNbLieux());
 
                     $.ajax({
                         async: true,
@@ -101,7 +99,6 @@ $(document).ready(() => {
                         url: "./PHP/getUserData.php",
                         dataType: "json",
                         success: data => {
-                            // document.querySelector("#phpmsg").innerHTML = data["nomU"];
                             let userData = $("#user-data > #userPersoDada");
                             userData.html(userData.html() + "<p id='pFName'><b>Nom: </b> " + data["nomU"] + "</p>");
                             userData.html(userData.html() + "<p id='pLName'><b>Prenom: </b>" + data["prenomU"] + "</p>");

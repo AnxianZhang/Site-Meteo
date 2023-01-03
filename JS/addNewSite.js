@@ -21,13 +21,10 @@ const initAddNewSite = () => {
         }
 
         $.ajax({
-            // faire le lien avec addNewSite.php
-            // si l'icon, l'img ou le text area est vide => mettre valeur par défault
             async: true,
             contentType: "application/x-www-form-urlencoded",
             type: "POST",
             url: url,
-            // dataType: "bool",
             data: dataa,
             success: data => {
                 if (!data) {
@@ -38,7 +35,6 @@ const initAddNewSite = () => {
                     acceptPopup("Creation reussi");
                     updateMapWithNewSite(dataa);
                 }
-                // alert(data);
             },
             error: () => {
                 alert("Problem occured in ajax of addNewSite.js");

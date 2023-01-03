@@ -26,7 +26,6 @@ const checkPwdValidity = () => {
         contentType: "application/x-www-form-urlencoded",
         type: "POST",
         url: url,
-        // dataType: "boolean",
         data: data,
         success: data => {
             if (data){

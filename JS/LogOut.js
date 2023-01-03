@@ -36,6 +36,8 @@ const initLogOut = () =>{
         disconnectPopup("Déconnexion réussie"); // fonction du fichier Popup.js
         mapVisibility(); // fonction du fichier MenuUI.js
         resetMeteo();
+        $("#interact-out-side > button").click();
+        $("#interact-out-side input").val("");
     });
 }
 
